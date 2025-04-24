@@ -23,7 +23,7 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //Share a variable with all views
+        // Share a variable with all views
         $logo = Settings::where('key', 'logo')->first()->image;
         $categories = Category::all();
 

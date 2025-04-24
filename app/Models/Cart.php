@@ -11,7 +11,7 @@ class Cart extends Model
     use HasFactory;
 
     protected $fillable = [
-        'quntity',
+        'quantity',
         'total_amount',
     ];
 }
