@@ -21,7 +21,15 @@ class AuthController extends Controller
         if (Auth::attempt($f, $request->remember)) {
             return redirect()->intended();
         } else {
-            return back()->withErrors(['failed' => 'Wrong email OR Wrong password'])->withInput($request->only('email'));
+            return back()->withErrors(['failed' => 'Invalid credentials provided!!!'])->withInput($request->only('email'));
         };
+    }
+
+    public function logout(Request $request)
+    {
+        Auth::logout();
+        $request->session()->invalidate();
+        $request->session()->regenerateToken();
+        return redirect('/');
     }
 }

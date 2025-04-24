@@ -63,15 +63,15 @@
               <li class="dropdown user user-menu">
                 <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                   <img src="../../dist/img/user2-160x160.jpg" class="user-image" alt="User Image"/>
-                  <span class="hidden-xs">Alexander Pierce</span>
+                  <span class="hidden-xs">{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
                     <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
                     <p>
-                      Alexander Pierce - Web Developer
-                      <small>Member since Nov. 2012</small>
+                      {{ auth()->user()->first_name }} {{ auth()->user()->last_name }}
+                      <small>Admin since {{ \Carbon\Carbon::parse(auth()->user()->created_at)->format('jS F, Y') }}</small>
                     </p>
                   </li>
                   
@@ -79,7 +79,10 @@
                   <li class="user-footer">
                    
                     <div class="pull-right">
-                      <a href="#" class="btn btn-default btn-flat">Sign out</a>
+                      <form action="{{ route('logout') }}" method="POST">
+                        @csrf
+                        <button type="submit" class="btn btn-default btn-flat">Sign out</button>
+                      </form>
                     </div>
                   </li>
                 </ul>
@@ -101,7 +104,7 @@
               <img src="../../dist/img/user2-160x160.jpg" class="img-circle" alt="User Image" />
             </div>
             <div class="pull-left info">
-              <p>Alexander Pierce</p>
+              <p>{{ auth()->user()->first_name }} {{ auth()->user()->last_name }}</p>
 
               <a href="#"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
