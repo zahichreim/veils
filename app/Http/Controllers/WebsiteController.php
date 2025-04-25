@@ -73,9 +73,9 @@ class WebsiteController extends Controller
 
     public function aboutus()
     {
-
+        $header_image = Settings::where('key', 'aboutus_header')->first()->image;
         $setting = Settings::where('key', 'aboutus')->first();
-        return view('pacex.about-us', ['setting' => $setting]);
+        return view('pacex.about-us', ['setting' => $setting, 'header_image' => $header_image]);
     }
     public function contactus()
     {
@@ -84,13 +84,13 @@ class WebsiteController extends Controller
     }
     public function FAQs()
     {
-
+        $header_image = Settings::where('key', 'faqs_header')->first()->image;
         $faqs = Faqs::all();
-        return view('pacex.FAQs', ['faqs' => $faqs]);
+        return view('pacex.FAQs', ['faqs' => $faqs, 'header_image' => $header_image]);
     }
     public function trackorder()
     {
-        $setting = Settings::where('key', 'contactus')->first();
+        $setting = Settings::where('key', 'trackorder')->first();
         return view('pacex.track-order', ['setting' => $setting]);
     }
     public function orderstatus(Request $request)
