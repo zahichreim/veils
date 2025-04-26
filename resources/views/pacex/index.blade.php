@@ -7,7 +7,6 @@
     <div class="wrap-slick1">
         <div class="slick1">
 
-            
             @foreach ($sliders as $slider)
               <div class="item-slick1" style="background-image: url({{ asset('storage/'.$slider->image) }});">
                 <div class="container h-full">
@@ -35,10 +34,6 @@
               </div>  
             @endforeach
             
-
-
-
-          
         </div>
     </div>
 </section>
@@ -107,12 +102,12 @@
                 <div class="block2">
                     <div class="block2-pic hov-img0 position-relative d-inline-block @if($product->discount>0) label-onsale @endif" data-label="ON SALE &#10; {{$product->discount}}%">
                         <img src="{{ asset('storage/'.$product->main_image) }}" alt="IMG-PRODUCT">
-						@if($product->discount>0)
+						{{-- @if($product->discount>0)
 						<span class="badge bg-danger position-absolute top-0 start-50 ms-5 mt-1 fs-6 rounded-circle">
 							ON SALE <br>
 							{{ $product->discount }}%
 						</span>
-						@endif
+						@endif --}}
                         <a href="#" id="{{ $product->id }}" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04 js-show-modal1">
                             Quick View
                         </a>
@@ -140,12 +135,6 @@
                     </div>
                 </div>
             </div>
-
-
-
-
-
-
 
             @endforeach
 			
@@ -312,9 +301,5 @@
     </div>
 </section>
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
-
-
-
-
 
 @endsection

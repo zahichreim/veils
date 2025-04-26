@@ -755,25 +755,25 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 .main-menu-m {
   padding-top: 10px;
   padding-bottom: 10px;
-  background-color: #717fe0;
+  background-color: beige;
 }
 
 .main-menu-m > li > a {
   font-family: Poppins-Medium;
   font-size: 14px;
-  color: white;
+  color: black;
   line-height: 2.8;
   padding: 8px 20px 8px 20px;
 }
 
 .main-menu-m > li {
-  color: white;
+  color: black;
   position: relative;
 }
 
 .arrow-main-menu-m {
   font-size: 14px;
-  color: #fff;
+  color: black;
 
   display: -webkit-box;
   display: -webkit-flex;

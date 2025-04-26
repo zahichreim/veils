@@ -173,6 +173,9 @@
 							<li>
 								<a href="#">Info</a>
                                 <ul class="sub-menu-m">
+									<li>
+                                        <a href="{{ route('track-order') }}">Track Order</a>
+                                    </li>
                                     <li>
                                       <a href="{{ route('about-us') }}">About Us</a>
                                     </li>
@@ -270,13 +273,13 @@
 						Categories
 					</h4>
 					@foreach ($categories as $category)
-					<ul>
+
 						<li class="p-b-10">
 							<a href="{{ route('category',$category->title) }}" class="stext-107 cl7 hov-cl1 trans-04">
 								{{ $category->title }}
 							</a>
 						</li>
-					</ul>	
+
 					@endforeach
 					
 				</div>
@@ -286,7 +289,7 @@
 						Info
 					</h4>
 
-					<ul>
+
 						<li class="p-b-10">
 							<a href="{{ route('track-order') }}" class="stext-107 cl7 hov-cl1 trans-04">
 								Track Order
@@ -310,7 +313,7 @@
 								FAQs
 							</a>
 						</li>
-					</ul>
+
 				</div>
 
 				<div class="col-sm-6 col-lg-3 p-b-50">

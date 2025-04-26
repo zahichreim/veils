@@ -116,7 +116,7 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-cog"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-gift"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('product.index') }}"><i class="fa fa-circle-o"></i> View Products</a></li>
@@ -126,7 +126,7 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-cog"></i> <span>Categories</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-list"></i> <span>Categories</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('category.index') }}"><i class="fa fa-circle-o"></i> View Categories</a></li>
@@ -136,7 +136,7 @@
             
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-cog"></i> <span>Promocodes</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-qrcode"></i> <span>Promocodes</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('promocode.index') }}"><i class="fa fa-circle-o"></i> View Promocodes</a></li>
@@ -145,7 +145,7 @@
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-cog"></i> <span>Sizes</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-font"></i> <span>Sizes</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('size.index') }}"><i class="fa fa-circle-o"></i> View Sizes</a></li>
@@ -155,7 +155,7 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-cog"></i> <span>Sliders</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-picture-o"></i> <span>Sliders</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('slider.index') }}"><i class="fa fa-circle-o"></i> View Sliders</a></li>
@@ -174,7 +174,7 @@
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-cog"></i> <span>Orders</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-tasks"></i> <span>Orders</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('order.index') }}"><i class="fa fa-circle-o"></i> View Orders</a></li>
@@ -183,7 +183,7 @@
             </li>
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-cog"></i> <span>Messages</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-envelope"></i> <span>Messages</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('message.index') }}"><i class="fa fa-circle-o"></i> View Messages</a></li>
@@ -193,7 +193,7 @@
 
             <li class="treeview">
               <a href="#">
-                <i class="fa fa-cog"></i> <span>FAQs</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-question-circle"></i> <span>FAQs</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
                 <li><a href="{{ route('faqs.index') }}"><i class="fa fa-circle-o"></i> View FAQs</a></li>
