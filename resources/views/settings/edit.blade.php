@@ -5,7 +5,7 @@
     
     </a> 
 @endsection
-@section('title', 'Update a new settings')
+@section('title', 'Update a setting')
 
 
    

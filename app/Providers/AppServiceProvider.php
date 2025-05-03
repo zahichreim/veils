@@ -26,7 +26,8 @@ class AppServiceProvider extends ServiceProvider
         // Share a variable with all views
         $logo = Settings::where('key', 'logo')->first()->image;
         $categories = Category::all();
-
+        $get_in_touch = Settings::where('key', 'get_in_touch')->first();
+        $join_us = Settings::where('key', 'join_us')->first();
         View::composer('*', function ($view) {
             $cart = json_decode(Cookie::get('shopping_cart', '[]'));
             $view->with('cart', $cart);
@@ -34,5 +35,7 @@ class AppServiceProvider extends ServiceProvider
 
         View::share('categories', $categories);
         View::share('logo', $logo);
+        View::share('get_in_touch', $get_in_touch);
+        View::share('join_us', $join_us);
     }
 }

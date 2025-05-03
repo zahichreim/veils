@@ -9,6 +9,9 @@
 	<link rel="icon" type="image/png" href="{{asset('storage\settings_image\BA4EG0Hfv6vgf1Nnw7Mz0KxJ7079qY71I44AUXoI.jpg')}}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('pacex/vendor/bootstrap/css/bootstrap.min.css')}}">
+	
+	<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css" type="text/css" rel="stylesheet">
+
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('pacex/fonts/font-awesome-4.7.0/css/font-awesome.min.css')}}">
 <!--===============================================================================================-->
@@ -40,6 +43,7 @@
   href="https://cdn.jsdelivr.net/npm/mdb-ui-kit@8.2.0/css/mdb.min.css"
   rel="stylesheet"
 />
+
 </head>
 <body class="animsition">
 	
@@ -252,17 +256,11 @@
 		</div>
 	</div>
 
-		
-
-
-    
     @yield('slider')
     @yield('categories')
     @yield('products')
     @yield('product')
     @yield('content')
-
-	
 
 	<!-- Footer -->
 	<footer class="bg3 p-t-75 p-b-32">
@@ -288,8 +286,7 @@
 					<h4 class="stext-301 cl0 p-b-30">
 						Info
 					</h4>
-
-
+					
 						<li class="p-b-10">
 							<a href="{{ route('track-order') }}" class="stext-107 cl7 hov-cl1 trans-04">
 								Track Order
@@ -318,11 +315,11 @@
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
-						GET IN TOUCH
+						{!! $get_in_touch->description !!}
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+						{{ $get_in_touch->value }}
 					</p>
 
 					<div class="p-t-27">
@@ -335,18 +332,18 @@
 						</a>
 
 						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-pinterest-p"></i>
+							<i class="fab fa-tiktok"></i>
 						</a>
 					</div>
 				</div>
 
 				<div class="col-sm-6 col-lg-3 p-b-50">
 					<h4 class="stext-301 cl0 p-b-30">
-						GET IN TOUCH
+						{!! $join_us->description !!}
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						Any questions? Let us know in store at 8th floor, 379 Hudson St, New York, NY 10018 or call us on (+1) 96 716 6879
+						{!! $join_us->value !!}
 					</p>
 
 					<div class="p-t-27">
@@ -359,40 +356,17 @@
 						</a>
 
 						<a href="#" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
-							<i class="fa fa-pinterest-p"></i>
+							<i class="fab fa-tiktok"></i>
 						</a>
 					</div>
 				</div>
+
+
 			</div>
 
 			<div class="p-t-40">
-				<div class="flex-c-m flex-w p-b-18">
-					<a href="#" class="m-all-1">
-						<img src="{{asset('pacex/images/icons/icon-pay-01.png')}}" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="{{asset('pacex/images/icons/icon-pay-02.png')}}" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="{{asset('pacex/images/icons/icon-pay-03.png')}}" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="{{asset('pacex/images/icons/icon-pay-04.png')}}" alt="ICON-PAY">
-					</a>
-
-					<a href="#" class="m-all-1">
-						<img src="{{asset('pacex/images/icons/icon-pay-05.png')}}" alt="ICON-PAY">
-					</a>
-				</div>
-
 				<p class="stext-107 cl6 txt-center">
-					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-Copyright &copy;{{ \Carbon\Carbon::now()->year }} All rights reserved | Pacex | Privacy and Terms.
-<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-
+					Copyright &copy;{{ \Carbon\Carbon::now()->year }} All rights reserved | Pacex | Privacy and Terms.
 				</p>
 			</div>
 		</div>

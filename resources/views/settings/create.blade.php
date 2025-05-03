@@ -37,7 +37,7 @@
 
               <div class="form-group @error('value') has-error @enderror">
               <label for="value">Value</label>
-              <textarea name="value" value="" class="form-control" id="editor2" placeholder="Enter additional information">{{ old('value') }}</textarea>
+              <textarea name="value" value="" class="form-control" id="editor1" placeholder="Enter additional information">{{ old('value') }}</textarea>
 
               @error('value')
                 <p class="text-red">{{$message}}</p>
@@ -48,7 +48,7 @@
             
             <div class="form-group @error('description') has-error @enderror">
               <label for="description">Description</label>
-              <input name="description" value="{{ old('description') }}" class="form-control" placeholder="Enter the description">
+              <textarea name="description" class="form-control" id="editor2" placeholder="Enter the description">{{ old('description') }}</textarea>
 
               @error('description')
                 <p class="text-red">{{$message}}</p>
