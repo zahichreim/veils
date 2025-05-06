@@ -48,10 +48,11 @@ Route::middleware('auth')->group(function () {
     Route::resource('slider', SliderController::class);
     Route::resource('settings', SettingsController::class);
     Route::resource('faqs', FaqsController::class);
-    Route::resource('order', OrderController::class);
+    Route::resource('order', OrderController::class)->except('store');
     Route::resource('message', MessageController::class)->except('store');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 });
+Route::resource('order', OrderController::class)->only('store');
 Route::resource('message', MessageController::class)->only('store');
 Route::view('/login', 'auth.login')->name('login');
 

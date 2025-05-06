@@ -92,8 +92,6 @@
             </h3>
         </div>
 
-       
-
         <div class="row isotope-grid">
 
             @foreach ($products as $product)
@@ -141,8 +139,8 @@
             @foreach ($products as $product)
 					
 			<!-- Modal1 -->
-				<form action="/add-to-cart" method="POST" id="add-to-cart-form">
-				@csrf
+				{{-- <form action="/add-to-cart" method="POST" id="add-to-cart-form">
+				@csrf --}}
 				<div class="wrap-modal1 js-modal1 p-t-60 p-b-20" id="product-modal{{ $product->id }}">
 					<div class="overlay-modal1 js-hide-modal1"></div>
 
@@ -288,15 +286,10 @@
 						</div>
 					</div>
 				</div>
-			  	</form>
+			  	{{-- </form> --}}
 			
-			  
-			    
             @endforeach
 			
-            
-
-            
         </div>
     </div>
 </section>

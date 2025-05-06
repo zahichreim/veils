@@ -7,8 +7,6 @@
 @endsection
 @section('title', 'Update a setting')
 
-
-   
 @section('content')
 
   <div class="row">
@@ -36,9 +34,6 @@
 
               </div>
 
-
-            
-
             <div class="form-group">
               <label for="image">Choose a new Image</label>
               <input type="file" name="image" id="image" class="form-control" onchange="previewImages()">
@@ -62,17 +57,10 @@
       
       </div><!-- /.box -->
 
-      
-
-    
-
-      
     </div><!--/.col (left) -->
 
   </div>   <!-- /.row -->
 
-
- 
  <script>
   function previewImages() {
       var preview = document.getElementById('imagePreview');
@@ -96,10 +84,6 @@
       });
   }
  
-
-
 </script>
   
-  
-    
 @endsection

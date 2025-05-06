@@ -217,6 +217,7 @@
 			
 			<div class="header-cart-content flex-w js-pscroll">
 				<ul class="header-cart-wrapitem w-full">
+					@isset($cart)
                     @php $totalPrice=0 @endphp
                     @foreach ($cart as $c)
                     @php
@@ -252,6 +253,7 @@
 						</a>
 					</div>
 				</div>
+				@endisset
 			</div>
 		</div>
 	</div>
@@ -286,7 +288,7 @@
 					<h4 class="stext-301 cl0 p-b-30">
 						Info
 					</h4>
-					
+
 						<li class="p-b-10">
 							<a href="{{ route('track-order') }}" class="stext-107 cl7 hov-cl1 trans-04">
 								Track Order
@@ -319,7 +321,7 @@
 					</h4>
 
 					<p class="stext-107 cl7 size-201">
-						{{ $get_in_touch->value }}
+						{!! $get_in_touch->value !!}
 					</p>
 
 					<div class="p-t-27">

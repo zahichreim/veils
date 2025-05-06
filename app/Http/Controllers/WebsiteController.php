@@ -108,7 +108,7 @@ class WebsiteController extends Controller
             ],
         ]);
 
-        $setting = Settings::where('key', 'contactus')->first();
+        $setting = Settings::where('key', 'trackorder')->first();
         $order = Order::where('id', Str::after($request->input('order_nb'), 'pacex-'))->get();
         if ($order->isEmpty()) {
             return view('pacex.track-order', ['error' => 'ORDER NOT FOUND', 'setting' => $setting]);
