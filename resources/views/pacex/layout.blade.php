@@ -185,13 +185,35 @@
         height: 110px;
         margin-right: 42px;
         padding: 6px 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     body.brand-velitique .logo img,
     body.brand-velitique .logo-mobile img {
         max-height: 100%;
+        width: auto;
         object-fit: contain;
-        filter: drop-shadow(0 10px 24px rgba(112, 90, 54, 0.18));
+        filter: drop-shadow(0 14px 26px rgba(112, 90, 54, 0.2));
+        transition: transform 0.3s ease, filter 0.3s ease;
+    }
+
+    body.brand-velitique .logo img {
+        max-width: 220px;
+        padding: 12px 18px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(255, 252, 247, 0.96), rgba(247, 239, 227, 0.92));
+        border: 1px solid rgba(167, 124, 71, 0.18);
+        box-shadow:
+            0 18px 34px rgba(59, 45, 29, 0.12),
+            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+    }
+
+    body.brand-velitique .logo:hover img,
+    body.brand-velitique .logo-mobile:hover img {
+        transform: translateY(-1px) scale(1.02);
+        filter: drop-shadow(0 18px 32px rgba(112, 90, 54, 0.24));
     }
 
     body.brand-velitique .menu-desktop .main-menu > li > a {
@@ -299,13 +321,23 @@
         height: 76px;
         padding: 0;
         text-align: center;
+        display: flex;
+        align-items: center;
+        justify-content: center;
     }
 
     body.brand-velitique .wrap-header-mobile .logo-mobile img {
         left: 50%;
         right: auto;
         transform: translateX(-50%);
-        max-width: 100%;
+        max-width: 180px;
+        padding: 10px 16px;
+        border-radius: 999px;
+        background: linear-gradient(180deg, rgba(255, 251, 245, 0.98), rgba(244, 234, 218, 0.92));
+        border: 1px solid rgba(202, 165, 106, 0.22);
+        box-shadow:
+            0 14px 28px rgba(18, 12, 10, 0.24),
+            inset 0 1px 0 rgba(255, 255, 255, 0.85);
     }
 
     body.brand-velitique .menu-mobile {
@@ -593,6 +625,11 @@
             height: 92px;
         }
 
+        body.brand-velitique .logo img {
+            max-width: 190px;
+            padding: 10px 15px;
+        }
+
         body.brand-velitique .item-slick1 {
             height: 78vh !important;
             min-height: 520px !important;
@@ -616,6 +653,11 @@
         body.brand-velitique .wrap-header-mobile .logo-mobile {
             width: 170px;
             height: 66px;
+        }
+
+        body.brand-velitique .wrap-header-mobile .logo-mobile img {
+            max-width: 150px;
+            padding: 8px 12px;
         }
     }
 </style>
