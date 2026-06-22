@@ -1485,22 +1485,25 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 /*---------------------------------------------*/
 .wrap-slick3-dots {
-  width: 11.111111%;
+  width: 18%;
 }
 
 .slick3 {
-  width: 83.333333%;
+  width: 78%;
 }
 
 .slick3-dots li {
   display: block;
   position: relative;
   width: 100%;
-  margin-bottom: 27px;
+  margin-bottom: 16px;
 }
 
 .slick3-dots li img {
   width: 100%;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 8px;
 }
 
 .slick3-dot-overlay {
@@ -1523,6 +1526,20 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 
 .slick3-dots .slick-active .slick3-dot-overlay {
   border-color: #ccc;
+}
+
+@media (max-width: 991px) {
+  .wrap-slick3-dots {
+    width: 22%;
+  }
+
+  .slick3 {
+    width: 74%;
+  }
+
+  .slick3-dots li img {
+    height: 88px;
+  }
 }
 
 
