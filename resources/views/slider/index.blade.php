@@ -43,6 +43,7 @@
               <th>Sub Title</th>
               <th>Image</th>
               <th>URL</th>
+              <th>Button Text</th>
               <th>Actions</th>
             </tr>
             </thead>
@@ -60,6 +61,7 @@
                   
                 </td>
                 <td>{{ $c->url }}</td>
+                <td>{{ $c->button_text }}</td>
                 <td>
                   <a href="{{ route('slider.edit',$c->id) }}">
                     <button class="btn btn-success">Update</button>

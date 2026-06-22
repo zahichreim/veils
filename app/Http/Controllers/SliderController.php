@@ -10,6 +10,29 @@ use Illuminate\Support\Facades\Storage;
 
 class SliderController extends Controller
 {
+    private function sliderRules(bool $imageRequired = true): array
+    {
+        $imageRules = ['file', 'max:3000', 'mimes:png,jpg,webp'];
+
+        if ($imageRequired) {
+            array_unshift($imageRules, 'required');
+        } else {
+            array_unshift($imageRules, 'nullable');
+        }
+
+        return [
+            'title' => ['nullable', 'max:255'],
+            'title_color' => ['required', 'regex:/^#[A-Fa-f0-9]{6}$/'],
+            'sub_title' => ['nullable', 'max:255'],
+            'sub_title_color' => ['required', 'regex:/^#[A-Fa-f0-9]{6}$/'],
+            'url' => ['nullable', 'max:255'],
+            'button_text' => ['nullable', 'max:255'],
+            'button_text_color' => ['required', 'regex:/^#[A-Fa-f0-9]{6}$/'],
+            'button_background_color' => ['required', 'regex:/^#[A-Fa-f0-9]{6}$/'],
+            'image' => $imageRules,
+        ];
+    }
+
     /**
      * Display a listing of the resource.
      */
@@ -35,12 +58,7 @@ class SliderController extends Controller
      */
     public function store(Request $request)
     {
-        $request->validate([
-            'title' => ['nullable', 'max:255'],
-            'sub_title' => ['nullable', 'max:255'],
-            'url' => ['nullable', 'max:255'],
-            'image' => ['required', 'file', 'max:3000', 'mimes:png,jpg,webp']
-        ]);
+        $request->validate($this->sliderRules());
 
         $path = null;
         if ($request->hasFile('image')) {
@@ -50,9 +68,14 @@ class SliderController extends Controller
 
         Slider::create([
             'title' => $request->title,
+            'title_color' => $request->title_color,
             'sub_title' => $request->sub_title,
+            'sub_title_color' => $request->sub_title_color,
             'url' => $request->url,
-            'image' => $path
+            'button_text' => $request->button_text,
+            'button_text_color' => $request->button_text_color,
+            'button_background_color' => $request->button_background_color,
+            'image' => $path,
         ]);
 
         return redirect(route('slider.index'))->with('success', 'Your slider was CREATED');
@@ -79,13 +102,7 @@ class SliderController extends Controller
      */
     public function update(Request $request, Slider $slider)
     {
-
-        $request->validate([
-            'title' => ['nullable', 'max:255'],
-            'sub_title' => ['nullable', 'max:255'],
-            'url' => ['nullable', 'max:255'],
-            'image' => ['file', 'max:3000', 'mimes:png,jpg,webp']
-        ]);
+        $request->validate($this->sliderRules(false));
 
         $path = $slider->image;
         if ($request->hasFile('image')) {
@@ -96,9 +113,14 @@ class SliderController extends Controller
 
         $slider->update([
             'title' => $request->title,
+            'title_color' => $request->title_color,
             'sub_title' => $request->sub_title,
+            'sub_title_color' => $request->sub_title_color,
             'url' => $request->url,
-            'image' => $path
+            'button_text' => $request->button_text,
+            'button_text_color' => $request->button_text_color,
+            'button_background_color' => $request->button_background_color,
+            'image' => $path,
         ]);
 
         return redirect(route('slider.index'))->with('success', 'Your slider was UPDATED');

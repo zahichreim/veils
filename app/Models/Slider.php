@@ -12,8 +12,13 @@ class Slider extends Model
 
     protected $fillable = [
         'title',
+        'title_color',
         'sub_title',
+        'sub_title_color',
         'image',
-        'url'
+        'url',
+        'button_text',
+        'button_text_color',
+        'button_background_color',
     ];
 }
