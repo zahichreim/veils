@@ -106,8 +106,9 @@
 
     /* ===== Mobile header bar (black) ===== */
     .wrap-header-mobile {
+        position: relative;
         background-color: #000;
-        justify-content: space-between;
+        justify-content: flex-start;
     }
     .wrap-header-mobile .hamburger-inner,
     .wrap-header-mobile .hamburger-inner::before,
@@ -119,23 +120,33 @@
     }
     .wrap-header-mobile .btn-show-menu-mobile {
         order: 1;
-        margin-right: 12px;
+        position: relative;
+        z-index: 2;
+        margin-right: 0;
     }
     .wrap-header-mobile .wrap-icon-header {
-        order: 2;
-        margin-right: 12px;
+        order: 3;
         margin-left: auto;
+        margin-right: 0;
+        position: relative;
+        z-index: 2;
     }
     .wrap-header-mobile .logo-mobile {
-        order: 3;
-        flex-grow: 0;
-        padding-right: 0;
-        padding-left: 20px;
-        text-align: right;
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 1;
+        width: 110px;
+        height: 44px;
+        padding: 0;
+        text-align: center;
     }
     .wrap-header-mobile .logo-mobile img {
-        left: auto;
-        right: 0;
+        left: 50%;
+        right: auto;
+        transform: translateX(-50%);
+        max-width: 100%;
     }
 
     /* ===== Mobile menu: solid black + giant faint "X" brand mark ===== */
@@ -336,17 +347,17 @@
 				</span>
 			</div>
 
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="{{ route('home') }}"><img src="{{ asset('storage/'.$logo) }}" alt="IMG-LOGO"></a>
+			</div>
+
 			<!-- Icon header -->
-			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+			<div class="wrap-icon-header flex-w flex-r-m">
 
 				<div class="icon-header-item cl2 hov-cl1 trans-04 p-r-11 p-l-10 icon-header-noti js-show-cart" data-notify="{{ count($cart) }}">
 					<i class="zmdi zmdi-shopping-cart"></i>
 				</div>
-			</div>
-
-			<!-- Logo moblie -->		
-			<div class="logo-mobile">
-				<a href="{{ route('home') }}"><img src="{{ asset('storage/'.$logo) }}" alt="IMG-LOGO"></a>
 			</div>
 		</div>
 
