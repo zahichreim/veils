@@ -182,9 +182,9 @@
     }
 
     body.brand-velitique .logo {
-        height: 78px;
+        height: 110px;
         margin-right: 42px;
-        padding: 8px 0;
+        padding: 6px 0;
     }
 
     body.brand-velitique .logo img,
@@ -295,8 +295,8 @@
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
-        width: 150px;
-        height: 58px;
+        width: 200px;
+        height: 76px;
         padding: 0;
         text-align: center;
     }
@@ -425,19 +425,19 @@
         overflow: hidden;
     }
 
-    body.brand-velitique .item-slick1::before {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background:
-            linear-gradient(115deg, rgba(247, 241, 232, 0.92) 0%, rgba(247, 241, 232, 0.42) 42%, rgba(38, 33, 43, 0.12) 100%);
-        pointer-events: none;
-    }
-
     body.brand-velitique .item-slick1 .container,
     body.brand-velitique .item-slick1 .layer-slick1 {
         position: relative;
         z-index: 1;
+    }
+
+    body.brand-velitique .section-slide .flex-col-c-m {
+        text-shadow: 0 10px 30px rgba(38, 33, 43, 0.16);
+    }
+
+    body.brand-velitique .section-slide .ltext-101,
+    body.brand-velitique .section-slide .ltext-201 {
+        text-shadow: 0 8px 24px rgba(255, 255, 255, 0.35);
     }
 
     body.brand-velitique .ltext-101,
@@ -589,6 +589,10 @@
     }
 
     @media (max-width: 991px) {
+        body.brand-velitique .logo {
+            height: 92px;
+        }
+
         body.brand-velitique .item-slick1 {
             height: 78vh !important;
             min-height: 520px !important;
@@ -605,6 +609,13 @@
 
         body.brand-velitique .section-slide {
             margin-top: 0;
+        }
+    }
+
+    @media (max-width: 575px) {
+        body.brand-velitique .wrap-header-mobile .logo-mobile {
+            width: 170px;
+            height: 66px;
         }
     }
 </style>
