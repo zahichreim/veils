@@ -3,22 +3,13 @@
 @section('{{ $category->title }}-active','class=active-menu')
 @section('products')
 
+@php $category = $category->first(); @endphp
+
 <div class="bg0 m-t-100 p-b-140">
 <div class="container">
 <div class="flex-w flex-sb-m p-b-52">
     <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-        <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
-            All Products
-        </button>
-        @foreach ($category as $category)
-         <li>
-            @foreach ($category->subcategories as $subcategory)
-                <button @if (isset($subCategoryTitle)) id="filter-button-{{ $subcategory->title }}" @endif class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".{{ preg_replace('/[^a-zA-Z0-9]/', '', $subcategory->title) }}-{{ preg_replace('/[^a-zA-Z0-9]/', '', $category->title) }}">
-                    {{ $subcategory->title }}
-                </button>
-            @endforeach
-         </li>
-        @endforeach
+        <h3 class="mtext-101 cl2 m-r-32 m-tb-5">{{ $category->title }}</h3>
     </div>
     
     <!-- Search product -->
@@ -36,11 +27,10 @@
 </div>
 
 <div class="row isotope-grid"   id="products-container">
-    
-    @foreach ($category->subcategories as $subcategory)
-    @foreach($subcategory->products as $product)
 
-     <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{ preg_replace('/[^a-zA-Z0-9]/', '', $product->subcategory->title) }}-{{ preg_replace('/[^a-zA-Z0-9]/', '', $product->subcategory->category->title) }} {{ preg_replace('/[^a-zA-Z0-9]/', '', $product->subcategory->category->title) }}">
+    @foreach ($category->products as $product)
+
+     <div class="col-sm-6 col-md-4 col-lg-3 p-b-35 isotope-item {{ preg_replace('/[^a-zA-Z0-9]/', '', $category->title) }}">
         <!-- Block2 -->
         <div class="block2">
             <div class="block2-pic hov-img0">
@@ -71,10 +61,8 @@
     </div>
     
     @endforeach
-    @endforeach
 
-    @foreach ($category->subcategories as $subcategory)
-    @foreach($subcategory->products as $product)
+    @foreach ($category->products as $product)
 			  <!-- Modal1 -->
 				{{-- <div class="wrap-modal1 js-modal1 p-t-60 p-b-20" id="product-modal{{ $product->id }}">
 					<div class="overlay-modal1 js-hide-modal1"></div>
@@ -185,26 +173,7 @@
 											</div>	
 										</div>
 
-										<!--  -->
-										<div class="flex-w flex-m p-l-100 p-t-40 respon7">
-											<div class="flex-m bor9 p-r-10 m-r-11">
-												<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
-													<i class="zmdi zmdi-favorite"></i>
-												</a>
-											</div>
-
-											<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
-												<i class="fa fa-facebook"></i>
-											</a>
-
-											<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
-												<i class="fa fa-twitter"></i>
-											</a>
-
-											<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
-												<i class="fa fa-google-plus"></i>
-											</a>
-										</div>
+										
 									</div>
 								</div>
 							</div>
@@ -331,27 +300,6 @@
                                                     </div>
                                                 </div>	
                                             </div>
-                
-                                            <!--  -->
-                                            <div class="flex-w flex-m p-l-100 p-t-40 respon7">
-                                                <div class="flex-m bor9 p-r-10 m-r-11">
-                                                    <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
-                                                        <i class="zmdi zmdi-favorite"></i>
-                                                    </a>
-                                                </div>
-                
-                                                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
-                                                    <i class="fa fa-facebook"></i>
-                                                </a>
-                
-                                                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
-                                                    <i class="fa fa-twitter"></i>
-                                                </a>
-                
-                                                <a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
-                                                    <i class="fa fa-google-plus"></i>
-                                                </a>
-                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -359,11 +307,10 @@
                         </div>
                     </div>
                   {{-- </form> --}}
-                
+
     @endforeach
-    @endforeach  
-    
-    
+
+
 </div>
 
             {{-- <!-- Load more -->
@@ -399,10 +346,6 @@
 	   $('.js-modal1').removeClass('show-modal1');
    });
 
-    @if (isset($subCategoryTitle))
-        var subCategoryTitle = @json($subCategoryTitle);
-        document.getElementById("filter-button-"+subCategoryTitle).click();
-    @endif
 	});
    function showMyModal(productId)
    {

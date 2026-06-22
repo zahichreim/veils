@@ -52,16 +52,16 @@
 
             </div>
 
-            <div class="form-group @error('sub_category_id') form-group has-error @enderror">
-              <label for="sub_category_id">Choose a category: </label>
-              <select name="sub_category_id" class="form-control select2" id="category_id">
-                <option value="{{ $product->subcategory->id }}">{{ $product->subcategory->title }} - {{ $product->subcategory->category->title }}</option>
-                @foreach ($subcategories as $subcategory)
-                    <option value="{{ $subcategory->id }}">{{ $subcategory->title }} - {{ $subcategory->category->title }}</option>
+            <div class="form-group @error('category_id') form-group has-error @enderror">
+              <label for="category_id">Choose a category: </label>
+              <select name="category_id" class="form-control select2" id="category_id">
+                <option value="{{ $product->category->id }}">{{ $product->category->title }}</option>
+                @foreach ($categories as $category)
+                    <option value="{{ $category->id }}">{{ $category->title }}</option>
                 @endforeach
               </select>
 
-              @error('sub_category_id')
+              @error('category_id')
                 <p class="text-red">{{$message}}</p>
               @enderror
 

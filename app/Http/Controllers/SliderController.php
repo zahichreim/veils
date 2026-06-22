@@ -36,9 +36,9 @@ class SliderController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'title' => ['required', 'max:255'],
-            'sub_title' => ['required', 'max:255'],
-            'url' => ['required', 'max:255'],
+            'title' => ['nullable', 'max:255'],
+            'sub_title' => ['nullable', 'max:255'],
+            'url' => ['nullable', 'max:255'],
             'image' => ['required', 'file', 'max:3000', 'mimes:png,jpg,webp']
         ]);
 
@@ -81,9 +81,9 @@ class SliderController extends Controller
     {
 
         $request->validate([
-            'title' => ['required', 'max:255'],
-            'sub_title' => ['required', 'max:255'],
-            'url' => ['required', 'max:255'],
+            'title' => ['nullable', 'max:255'],
+            'sub_title' => ['nullable', 'max:255'],
+            'url' => ['nullable', 'max:255'],
             'image' => ['file', 'max:3000', 'mimes:png,jpg,webp']
         ]);
 

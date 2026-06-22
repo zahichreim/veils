@@ -8,7 +8,6 @@ use App\Models\Order;
 use App\Models\Product;
 use App\Models\Settings;
 use App\Models\Slider;
-use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Str;
@@ -58,17 +57,12 @@ class WebsiteController extends Controller
     public function category($title)
     {
 
-        $category = Category::where('title', $title)->with('subcategories')->get();
+        $category = Category::where('title', $title)
+            ->with('products.productinfo', 'products.images')
+            ->get();
 
 
         return view('pacex.category', ['category' => $category]);
-    }
-
-    public function subCategory($categoryTitle, $subCategoryTitle)
-    {
-
-        $category = Category::where('title', $categoryTitle)->with('subcategories')->get();
-        return view('pacex.category', ['category' => $category, 'subCategoryTitle' => $subCategoryTitle]);
     }
 
     public function aboutus()

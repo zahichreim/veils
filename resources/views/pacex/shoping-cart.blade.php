@@ -3,12 +3,152 @@
 @section('class', 'class=header-v4')
 @section('content')
 
+<!-- ===== PaceX "X" brand checkout styling ===== -->
+<style>
+    .bread-crumb h1 {
+        text-transform: uppercase;
+        letter-spacing: 4px;
+        font-weight: 800;
+    }
+
+    /* Thank-you banner */
+    .x-thankyou {
+        position: relative;
+        overflow: hidden;
+        max-width: 720px;
+        margin: 26px auto 10px;
+        padding: 30px 26px;
+        background: #000;
+        border-radius: 16px;
+        text-align: center;
+    }
+    .x-thankyou-mark {
+        position: absolute;
+        right: -8px;
+        bottom: -40px;
+        font-size: 160px;
+        font-style: italic;
+        font-weight: 800;
+        line-height: 1;
+        color: rgba(255, 255, 255, 0.06);
+        pointer-events: none;
+    }
+    .x-thankyou-title {
+        position: relative;
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 700;
+        margin: 0 0 8px;
+    }
+    .x-thankyou-text {
+        position: relative;
+        color: rgba(255, 255, 255, 0.82);
+        margin: 0;
+    }
+
+    /* Proceed to checkout -> solid black X button (invert on hover) */
+    .size-116.bg3 {
+        background-color: #000 !important;
+        border-color: #000 !important;
+        color: #fff !important;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-weight: 700;
+        border-radius: 10px;
+        transition: background-color 0.3s, color 0.3s;
+    }
+    .size-116.bg3:hover {
+        background-color: #fff !important;
+        color: #000 !important;
+        border-color: #000 !important;
+    }
+    /* Apply-promocode button -> black */
+    .size-118.bg8 {
+        background-color: #000 !important;
+        border-color: #000 !important;
+    }
+    .size-118.bg8 #promocode-btn { color: #fff; }
+
+    /* ===== Mobile: creative + spacious ===== */
+    @media (max-width: 991px) {
+        .bread-crumb { justify-content: center; }
+        .bread-crumb h1 { font-size: 26px; }
+
+        /* checkout card as an X-brand panel */
+        .bor10 {
+            position: relative;
+            overflow: hidden;
+            margin: 0 12px 30px !important;
+            border: 1px solid #000 !important;
+            border-radius: 18px;
+            background-color: #fff;
+        }
+        .bor10::before {
+            content: "X";
+            position: absolute;
+            right: -18px;
+            top: -46px;
+            font-size: 190px;
+            font-style: italic;
+            font-weight: 800;
+            line-height: 1;
+            color: rgba(0, 0, 0, 0.035);
+            pointer-events: none;
+        }
+        .mtext-109 {
+            position: relative;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: 800;
+        }
+
+        /* spacing + finger-friendly inputs */
+        #checkout .form-floating { margin-bottom: 16px !important; position: relative; }
+        #checkout .form-control { min-height: 56px; }
+        #checkout label {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+        }
+        #checkout .rs1-select2 { margin-bottom: 16px !important; }
+        #checkout > label,
+        .p-t-15 > label {
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        /* full-width, tall proceed button */
+        .size-116.bg3 {
+            width: 100%;
+            height: 56px;
+        }
+
+        /* promocode row spacing */
+        .size-117 { margin-bottom: 8px; }
+
+        /* cart rows breathing room */
+        .table-shopping-cart .column-1 img { border-radius: 8px; }
+    }
+</style>
+
 
 
 @if (session('success'))
-    <div class="alert alert-success text-center" style="width: fit-content; left: 50%; transform: translateX(-50%);">
-        <p>{{ session('success') }}</p>
+    <div class="x-thankyou">
+        <span class="x-thankyou-mark">X</span>
+        <h3 class="x-thankyou-title">Thank you for your order</h3>
+        <p class="x-thankyou-text">{{ session('success') }}</p>
     </div>
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            if (typeof swal === 'function') {
+                swal("Thank you for your order!", @json(session('success')), "success");
+            }
+        });
+    </script>
 @endif
 @if (session('a'))
     <div class="alert alert-danger text-center" style="width: fit-content; left: 50%; transform: translateX(-50%);">
@@ -161,20 +301,11 @@
                         <div class="bor8 bg0 m-b-12 form-floating">
 
                             <input class="stext-111 cl8 plh3 size-111 p-lr-15 form-control"
-                                value="{{ old('first_name') }}" type="text" name="first_name"
-                                placeholder="First Name">
-                            <label for="first_name">First Name:</label>
+                                value="{{ old('full_name') }}" type="text" name="full_name"
+                                placeholder="Full Name">
+                            <label for="full_name">Full Name:</label>
                         </div>
-                        @error('first_name')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
-
-                        <div class="bor8 bg0 m-b-12 form-floating">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15 form-control" type="text"
-                                value="{{ old('last_name') }}" name="last_name" placeholder="Last Name">
-                            <label for="last_name">Last Name:</label>
-                        </div>
-                        @error('last_name')
+                        @error('full_name')
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
 
@@ -187,41 +318,6 @@
                             <p class="text-danger">{{ $message }}</p>
                         @enderror
 
-                        <div class="bor8 bg0 m-b-12 form-floating">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15 form-control" type="text"
-                                value="{{ old('phone_nb2') }}" name="phone_nb2" placeholder="Phone Number 2">
-                            <label for="phone_nb2">Second Phone Number:</label>
-                        </div>
-                        @error('phone_nb2')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
-
-                        <div class="bor8 bg0 m-b-12 form-floating">
-                            <input class="stext-111 cl8 plh3 size-111 p-lr-15 form-control" type="text"
-                                value="{{ old('email') }}" name="email" placeholder="Email">
-                            <label for="email">Email:</label>
-                        </div>
-                        @error('email')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
-                        <label for="province">Select a province:</label>
-                        <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
-
-                            <select id="province" class="js-select2" name="province">
-                                <option></option>
-                                <option @selected(old('province') == 'Beirut')>Beirut</option>
-                                <option @selected(old('province') == 'Mount Lebanon')>Mount Lebanon</option>
-                                <option @selected(old('province') == 'North Lebanon')>North Lebanon</option>
-                                <option @selected(old('province') == 'South Lebanon')>South Lebanon</option>
-                                <option @selected(old('province') == 'Nabtieh')>Nabtieh</option>
-                                <option @selected(old('province') == 'Bekaa')>Bekaa</option>
-                            </select>
-                            <div class="dropDownSelect2"></div>
-
-                        </div>
-                        @error('province')
-                            <p class="text-danger">{{ $message }}</p>
-                        @enderror
                         <label for="district">Select a district:</label>
                         <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
 
@@ -332,67 +428,6 @@
 </div>
 {{-- </form>     --}}
 {{-- <script src="{{asset ('pacex/vendor/jquery/jquery-3.2.1.min.js')}}"></script> --}}
-
-<script>
-  // Data for dependent dropdown
-  const data = {
-    "beirut": [
-      { value: "achrafieh", text: "Achrafieh" },
-      { value: "hamra", text: "Hamra" },
-      { value: "saifi", text: "Saifi" }
-    ],
-    "mount-lebanon": [
-      { value: "baabda", text: "Baabda" },
-      { value: "jounieh", text: "Jounieh" },
-      { value: "byblos", text: "Byblos" }
-    ],
-    "north-lebanon": [
-      { value: "tripoli", text: "Tripoli" },
-      { value: "batroun", text: "Batroun" },
-      { value: "koura", text: "Koura" }
-    ],
-    "south-lebanon": [
-      { value: "sidon", text: "Sidon" },
-      { value: "tyre", text: "Tyre" },
-      { value: "jezzine", text: "Jezzine" }
-    ],
-    "nabtieh": [
-      { value: "nabatieh-city", text: "Nabatieh City" },
-      { value: "kfar-roummane", text: "Kfar Roummane" },
-      { value: "houla", text: "Houla" }
-    ],
-    "bekaa": [
-      { value: "zahleh", text: "Zahleh" },
-      { value: "baalbek", text: "Baalbek" },
-      { value: "rashayya", text: "Rashayya" }
-    ]
-  };
-
-  // Get references to the dropdowns
-  const provinceDropdown = document.getElementById("province");
-  const cityDropdown = document.getElementById("city");
-
-  // Event listener for province change
-  provinceDropdown.addEventListener("change", () => {
-    const selectedProvince = provinceDropdown.value;
-
-    // Clear the city dropdown
-    cityDropdown.innerHTML = '<option value="">Select City</option>';
-
-    // Populate the city dropdown if data exists for the selected province
-    if (data[selectedProvince]) {
-      data[selectedProvince].forEach(option => {
-        const newOption = document.createElement("option");
-        newOption.value = option.value;
-        newOption.textContent = option.text;
-        cityDropdown.appendChild(newOption);
-      });
-    }
-
-    // Trigger Select2 update
-    $(cityDropdown).trigger("change");
-  });
-</script>
 
 <script>
     $(function() {

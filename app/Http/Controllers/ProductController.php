@@ -8,7 +8,6 @@ use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\ProductInfo;
 use App\Models\Size;
-use App\Models\SubCategory;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
 
@@ -22,7 +21,7 @@ class ProductController extends Controller
         $perPage = 5;
 
         if ($request->ajax()) {
-            $products = Product::with('subcategory')->orderBy('created_at', 'desc')->paginate($perPage);
+            $products = Product::with('category')->orderBy('created_at', 'desc')->paginate($perPage);
             $pagination = $products->links('pagination::bootstrap-5')->render();
 
             return response()->json([
@@ -32,7 +31,7 @@ class ProductController extends Controller
             ]);
         }
 
-        $products = Product::orderBy('created_at', 'desc')->with('subcategory')->paginate($perPage);
+        $products = Product::orderBy('created_at', 'desc')->with('category')->paginate($perPage);
         return view('product.index', compact('products'));
     }
 
@@ -42,8 +41,8 @@ class ProductController extends Controller
     public function create()
     {
 
-        $sc = SubCategory::all();
-        return view('product.create', ['subcategories' => $sc]);
+        $categories = Category::all();
+        return view('product.create', ['categories' => $categories]);
     }
 
     /**
@@ -57,7 +56,7 @@ class ProductController extends Controller
             'color' => ['required'],
             'price' => ['required', 'numeric'],
             'discount' => ['required', 'numeric', 'max:100'],
-            'sub_category_id' => ['required', 'exists:sub_categories,id'],
+            'category_id' => ['required', 'exists:categories,id'],
             'is_featured' => [],
             'main_image' => ['required', 'file', 'max:3000', 'mimes:png,jpg,webp'],
             'additional_information' => ['required'],
@@ -106,7 +105,7 @@ class ProductController extends Controller
      */
     public function edit(Product $product)
     {
-        $sc = SubCategory::all();
+        $categories = Category::all();
         $product = Product::with('images')->findOrFail($product->id);
 
 
@@ -116,7 +115,7 @@ class ProductController extends Controller
             $image->path = 'data:image/png;base64,' . $image->path;
         }
 
-        return view('product.edit', ['product' => $product, 'subcategories' => $sc]);
+        return view('product.edit', ['product' => $product, 'categories' => $categories]);
     }
 
     /**
@@ -130,7 +129,7 @@ class ProductController extends Controller
             'color' => ['required'],
             'price' => ['required', 'numeric'],
             'discount' => ['required', 'numeric', 'max:100'],
-            'sub_category_id' => ['required', 'exists:sub_categories,id'],
+            'category_id' => ['required', 'exists:categories,id'],
             'is_featured' => [],
             'main_image' => ['file', 'max:3000', 'mimes:png,jpg,webp'],
             'additional_information' => ['required'],
@@ -208,7 +207,7 @@ class ProductController extends Controller
         $query = $request->get('query', '');
         $perPage = 5; // Number of results per page, adjust as needed
 
-        $products = Product::where('title', 'like', '%' . $query . '%')->orWhere('description', 'like', '%' . $query . '%')->with('subcategory')
+        $products = Product::where('title', 'like', '%' . $query . '%')->orWhere('description', 'like', '%' . $query . '%')->with('category')
             ->paginate($perPage)
             ->appends(['query' => $query]); // Preserve the query string
 

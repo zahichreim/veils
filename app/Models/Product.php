@@ -16,7 +16,7 @@ class Product extends Model
         'color',
         'price',
         'discount',
-        'sub_category_id',
+        'category_id',
         'is_featured',
         'main_image',
         'additional_information'
@@ -29,9 +29,9 @@ class Product extends Model
         return $this->hasMany(ProductInfo::class);
     }
 
-    public function subCategory()
+    public function category()
     {
-        return $this->belongsTo(SubCategory::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function images()

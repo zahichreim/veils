@@ -24,7 +24,10 @@ class AppServiceProvider extends ServiceProvider
     public function boot(): void
     {
         // Share a variable with all views
-        $logo = Settings::where('key', 'logo')->first()->image;
+        $logo = Settings::where('key', 'logo')->first();
+        if($logo) {
+            $logo = $logo->image;
+        }
         $categories = Category::all();
         $get_in_touch = Settings::where('key', 'get_in_touch')->first();
         $join_us = Settings::where('key', 'join_us')->first();

@@ -27,7 +27,7 @@
           <div class="box-body">
 
             <div class="form-group @error('title') form-group has-error @enderror">
-              <label for="title">Title</label>
+              <label for="title">Title (optional)</label>
               <input type="text" name="title" value="{{ old('title') }}" class="form-control" id="title" placeholder="Enter a title">
             
               @error('title')
@@ -36,7 +36,7 @@
             </div>
 
               <div class="form-group @error('sub_title') form-group has-error @enderror">
-                <label for="sub_title">Sub Title</label>
+                <label for="sub_title">Sub Title (optional)</label>
                 <input type="text" name="sub_title" value="{{ old('sub_title') }}" class="form-control" id="sub_title" placeholder="Enter a sub title">
               
                 @error('sub_title')
@@ -46,7 +46,7 @@
 
 
               <div class="form-group @error('url') form-group has-error @enderror">
-                <label for="url">URL</label>
+                <label for="url">URL (optional)</label>
                 <input type="text" name="url" value="{{ old('url') }}" class="form-control" id="url" placeholder="Enter a url">
               
                 @error('url')

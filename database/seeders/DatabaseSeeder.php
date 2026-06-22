@@ -5,7 +5,6 @@ namespace Database\Seeders;
 use App\Models\Category;
 use App\Models\Message;
 use App\Models\Promocode;
-use App\Models\User;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -16,9 +15,10 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        Message::factory()->count(10)->create();
-        Promocode::factory()->count(10)->create();
+        // Required for the site to render: admin login, settings keys, the 2 categories.
+        $this->call([
+            AdminUserSeeder::class,
+            SettingsSeeder::class
+        ]);
     }
 }

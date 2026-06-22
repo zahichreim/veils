@@ -114,6 +114,22 @@
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
 
+            <li>
+              <a href="{{ route('CMS') }}">
+                <i class="fa fa-dashboard"></i> <span>Dashboard</span>
+              </a>
+            </li>
+
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-money"></i> <span>Expenses</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="{{ route('expense.index') }}"><i class="fa fa-circle-o"></i> View Expenses</a></li>
+                <li><a href="{{ route('expense.create') }}"><i class="fa fa-circle-o"></i> Log an Expense</a></li>
+              </ul>
+            </li>
+
             <li class="treeview">
               <a href="#">
                 <i class="fa fa-gift"></i> <span>Products</span> <i class="fa fa-angle-left pull-right"></i>

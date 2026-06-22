@@ -11,24 +11,29 @@
               <div class="item-slick1" style="background-image: url({{ asset('storage/'.$slider->image) }});">
                 <div class="container h-full">
                     <div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+                        @if(!empty($slider->title))
                         <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
                             <span class="ltext-101 cl2 respon2">
                                 {{ $slider->title }}
                             </span>
                         </div>
-                            
+                        @endif
+
+                        @if(!empty($slider->sub_title))
                         <div class="layer-slick1 animated visible-false" data-appear="fadeInUp" data-delay="800">
                             <h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
                                 {{ $slider->sub_title }}
                             </h2>
                         </div>
-                        @isset($slider->url)
+                        @endif
+
+                        @if(!empty($slider->url))
                         <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
                             <a href="{{ $slider->url }}" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
                                 Shop Now
                             </a>
                         </div>
-						@endisset
+                        @endif
                     </div>
                 </div>
               </div>  
@@ -258,27 +263,6 @@
 													</button>
 												</div>
 											</div>	
-										</div>
-
-										<!--  -->
-										<div class="flex-w flex-m p-l-100 p-t-40 respon7">
-											<div class="flex-m bor9 p-r-10 m-r-11">
-												<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
-													<i class="zmdi zmdi-favorite"></i>
-												</a>
-											</div>
-
-											<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
-												<i class="fa fa-facebook"></i>
-											</a>
-
-											<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
-												<i class="fa fa-twitter"></i>
-											</a>
-
-											<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
-												<i class="fa fa-google-plus"></i>
-											</a>
 										</div>
 									</div>
 								</div>

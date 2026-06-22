@@ -44,6 +44,199 @@
   rel="stylesheet"
 />
 
+<!--===============================================================================================-->
+<!-- PaceX "X" brand navbar — monochrome / glass / transparency -->
+<style>
+    /* ===== Desktop: solid BLACK navbar, white monochrome links ===== */
+    .top-bar {
+        background-color: #000;
+    }
+    .wrap-menu-desktop,
+    .wrap-menu-desktop.how-shadow1,
+    .fix-menu-desktop .wrap-menu-desktop {
+        background-color: #000 !important;
+    }
+    .menu-desktop .main-menu > li > a {
+        position: relative;
+        color: #fff;
+        letter-spacing: 1.5px;
+        text-transform: uppercase;
+        font-weight: 600;
+    }
+    .menu-desktop .main-menu > li.active-menu > a {
+        color: #fff;
+    }
+    .menu-desktop .main-menu > li > a::after {
+        content: "";
+        position: absolute;
+        left: 22px;
+        right: 22px;
+        bottom: 16px;
+        height: 1px;
+        background: #fff;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 0.35s ease;
+    }
+    .menu-desktop .main-menu > li:hover > a::after,
+    .menu-desktop .main-menu > li.active-menu > a::after {
+        transform: scaleX(1);
+    }
+    /* cart icon white on the black bar */
+    .container-menu-desktop .wrap-icon-header .icon-header-item {
+        color: #fff;
+    }
+    /* Info dropdown styled as a dark panel to match */
+    .menu-desktop .main-menu .sub-menu {
+        background-color: #000;
+        border-top: 2px solid #fff;
+    }
+    .menu-desktop .main-menu .sub-menu a {
+        color: rgba(255, 255, 255, 0.75);
+    }
+    .menu-desktop .main-menu .sub-menu a:hover {
+        color: #fff;
+    }
+    /* push the hero slider below the fixed header so it isn't covered */
+    @media (min-width: 992px) {
+        .section-slide {
+            margin-top: 84px;
+        }
+    }
+
+    /* ===== Mobile header bar (black) ===== */
+    .wrap-header-mobile {
+        background-color: #000;
+    }
+    .wrap-header-mobile .hamburger-inner,
+    .wrap-header-mobile .hamburger-inner::before,
+    .wrap-header-mobile .hamburger-inner::after {
+        background-color: #fff !important;
+    }
+    .wrap-header-mobile .icon-header-item {
+        color: #fff !important;
+    }
+
+    /* ===== Mobile menu: solid black + giant faint "X" brand mark ===== */
+    .menu-mobile {
+        position: relative;
+        background-color: #000;
+        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        overflow: hidden;
+    }
+    .menu-mobile::before {
+        content: "X";
+        position: absolute;
+        right: -25px;
+        bottom: -80px;
+        font-size: 340px;
+        line-height: 1;
+        font-weight: 800;
+        font-style: italic;
+        color: rgba(255, 255, 255, 0.04);
+        pointer-events: none;
+        z-index: 0;
+    }
+    .menu-mobile .left-top-bar {
+        position: relative;
+        z-index: 1;
+        background: transparent;
+        color: rgba(255, 255, 255, 0.55);
+        text-align: center;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        font-size: 11px;
+        padding: 14px 0;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    /* kill the theme's beige background; pad the list so cards have room */
+    .main-menu-m {
+        position: relative;
+        z-index: 1;
+        background-color: transparent;
+        padding: 18px 16px 28px;
+    }
+    /* each item is a clearly pressable card with spacing between them */
+    .main-menu-m > li {
+        margin-bottom: 14px;
+        border: 1px solid rgba(255, 255, 255, 0.18);
+        border-radius: 12px;
+        background-color: rgba(255, 255, 255, 0.04);
+        overflow: hidden;
+    }
+    .main-menu-m > li:last-child {
+        margin-bottom: 0;
+    }
+    .main-menu-m > li > a {
+        display: block;                 /* whole row is tappable */
+        color: #fff;
+        text-transform: uppercase;
+        letter-spacing: 3px;
+        font-size: 15px;
+        font-weight: 600;
+        line-height: 1.4;
+        padding: 24px 26px;             /* tall, finger-friendly tap target */
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.25);
+        transition: padding-left 0.25s ease, background-color 0.2s ease;
+    }
+    .main-menu-m > li > a:hover,
+    .main-menu-m > li > a:active {
+        background-color: rgba(255, 255, 255, 0.14);
+        padding-left: 32px;
+    }
+    /* Info sub-menu (the only remaining dropdown on mobile) */
+    .main-menu-m .sub-menu-m {
+        background-color: rgba(0, 0, 0, 0.35);
+    }
+    .main-menu-m .sub-menu-m li {
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
+    }
+    .main-menu-m .sub-menu-m li a {
+        display: block;                 /* full-row tap target */
+        color: rgba(255, 255, 255, 0.75);
+        font-size: 12px;
+        letter-spacing: 2px;
+        font-weight: 400;
+        padding: 18px 26px 18px 38px;
+        -webkit-tap-highlight-color: rgba(255, 255, 255, 0.25);
+        transition: padding-left 0.25s ease, background-color 0.2s ease;
+    }
+    .main-menu-m .sub-menu-m li a:hover,
+    .main-menu-m .sub-menu-m li a:active {
+        color: #fff;
+        background-color: rgba(255, 255, 255, 0.08);
+        padding-left: 46px;
+    }
+    /* bigger, centered tap area for the Info expand arrow */
+    .main-menu-m .arrow-main-menu-m {
+        top: 8px;
+        right: 8px;
+        padding: 16px;
+    }
+    .main-menu-m .arrow-main-menu-m,
+    .main-menu-m .arrow-main-menu-m .fa {
+        color: rgba(255, 255, 255, 0.6);
+    }
+
+    /* ===== Mobile slider: show the FULL image (no cropping) ===== */
+    @media (max-width: 991px) {
+        .item-slick1 {
+            height: auto !important;
+            min-height: 0 !important;
+            aspect-ratio: 16 / 9;          /* keeps a banner shape; image still fully shown */
+            background-size: contain !important;
+            background-position: center center;
+            background-color: #000;        /* fills any letterbox area */
+        }
+        /* let captions sit naturally over the contained image */
+        .item-slick1 .container.h-full,
+        .item-slick1 .flex-col-l-m.h-full {
+            height: 100% !important;
+        }
+    }
+</style>
+<!--===============================================================================================-->
+
 </head>
 <body class="animsition">
 	
@@ -76,18 +269,8 @@
 							</li>
 
                             @foreach ($categories as $category)
-       
                             <li class={{ request()->is(['products/'.$category->title.'/*','products/'.$category->title]) ? 'active-menu':''}}>
-                            <a href="{{ route('category',$category->title) }}">{{ $category->title }}</a>
-                            <ul class="sub-menu">
-                                
-                                   @foreach ($category->subcategories as $subcategory)
-                                   <li>
-                                       <a href="{{ route('products-by-sub-category',[$category->title,$subcategory->title]) }}">{{ $subcategory->title }}</a>
-                                    </li>
-                                   @endforeach
-                                
-                                </ul>
+                                <a href="{{ route('category',$category->title) }}">{{ $category->title }}</a>
                             </li>
                             @endforeach
                             <li @yield('info-active')>
@@ -158,22 +341,10 @@
 					<a href="{{ route('home') }}">Home</a>
 				</li>
 				@foreach ($categories as $category)
-       
-                            <li>
-                            <a href="{{ route('category',$category->title) }}">{{ $category->title }}</a>
-                            <ul class="sub-menu-m">
-                                
-                                   @foreach ($category->subcategories as $subcategory)
-                                   <li>
-                                       <a href="{{ route('products-by-sub-category',[$category->title,$subcategory->title]) }}">{{ $subcategory->title }}</a>
-                                    </li>
-                                   @endforeach
-								</ul>
-								<span class="arrow-main-menu-m">
-									<i class="fa fa-angle-right" aria-hidden="true"></i>
-								</span>
-                            </li>
-							@endforeach
+				<li>
+					<a href="{{ route('category',$category->title) }}">{{ $category->title }}</a>
+				</li>
+				@endforeach
 							<li>
 								<a href="#">Info</a>
                                 <ul class="sub-menu-m">
@@ -507,27 +678,6 @@
 										</button>
 									</div>
 								</div>	
-							</div>
-
-							<!--  -->
-							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
-								<div class="flex-m bor9 p-r-10 m-r-11">
-									<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
-										<i class="zmdi zmdi-favorite"></i>
-									</a>
-								</div>
-
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
-									<i class="fa fa-facebook"></i>
-								</a>
-
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
-									<i class="fa fa-twitter"></i>
-								</a>
-
-								<a href="#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
-									<i class="fa fa-google-plus"></i>
-								</a>
 							</div>
 						</div>
 					</div>

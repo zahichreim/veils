@@ -43,7 +43,7 @@
               <th>Title</th>
               <th>Description</th>
               <th>Additional Information</th>
-              <th>Sub Category</th>
+              <th>Category</th>
 
               <th>Color</th>
               <th>Price</th>
@@ -60,7 +60,7 @@
                 <td>{{ $product->title }}</td>
                 <td>{!! $product->description !!}</td>
                 <td>{!! $product->additional_information !!}</td>
-                <td>{{ $product->subcategory->title }}</td>
+                <td>{{ $product->category->title }}</td>
 
                 <td style="background-color: {{ $product->color }};">{{ $product->color }}</td>
                 <td>$ {{ $product->price }}</td>
@@ -196,7 +196,7 @@ $(document).ready(function() {
                     <td>${row.title}</td>
                     <td>${row.description}</td>
                     <td>${row.additional_information}</td>
-                    <td>${row.subcategory.title}</td>
+                    <td>${row.category.title}</td>
                     <td style="background-color: ${row.color};">${row.color}</td>
                     <td>$ ${row.price}</td>
                     <td>

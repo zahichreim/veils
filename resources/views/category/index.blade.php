@@ -60,7 +60,7 @@
                     <button class="btn btn-success">Update</button>
                   </a>
                   <a href="{{ route('category.show',$c->id) }}">
-                    <button class="btn btn-primary">View the Sub Categories</button>
+                    <button class="btn btn-primary">View Products</button>
                   </a>
                   <form id="delete-form-{{ $c->id }}" action="{{ route('category.destroy',$c) }}" method="POST" style="display:inline;">
                     @csrf

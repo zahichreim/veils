@@ -30,20 +30,19 @@
     </div><!-- /.box-header -->
 
     <div class="box-body table-responsive">
-   
-  
+
+        <a href="{{ route('order.create') }}">
+          <button class="btn btn-success pull-right">Create a new order</button>
+        </a>
+
         <input type="text" class="form-control" style="width:50%" id="search" placeholder="Search...">
 
       <table id="example1" class="table table-bordered table-striped">
         
         <thead>
             <tr>
-              <th>First Name</th>
-              <th>Last Name</th>
+              <th>Full Name</th>
               <th>Phone Number</th>
-              <th>Second Phone Number</th>
-              <th>Email</th>
-              <th>Province</th>
               <th>District</th>
               <th>City</th>
               <th>Address</th>
@@ -57,12 +56,8 @@
     
             @foreach ($orders as $order)
             <tr>
-                <td>{{ $order->first_name }}</td>
-                <td>{{ $order->last_name }}</td>
+                <td>{{ $order->full_name }}</td>
                 <td>{{ $order->phone_nb }}</td>
-                <td>{{ $order->phone_nb2 }}</td>
-                <td>{{ $order->email }}</td>
-                <td>{{ $order->province }}</td>
                 <td>{{ $order->district }}</td>
                 <td>{{ $order->city }}</td>
                 <td>{{ $order->address }}</td>
