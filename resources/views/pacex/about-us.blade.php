@@ -1,5 +1,5 @@
 @extends('pacex.layout')
-@section('title','PaceX | About US')
+@section('title','Velitique by Hawraa | About Us')
 @section('info-active','class=active-menu')
 @section('class','class=header-v4')
 @section('content')
@@ -7,7 +7,7 @@
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url('{{ asset('storage/'.$header_image) }}');">
 		<h2 class="ltext-105 cl0 txt-center">
-			About US
+			About Us
 		</h2>
 	</section>	
 

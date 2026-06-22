@@ -1,5 +1,5 @@
 @extends('pacex.layout')
-@section('title','PaceX | '.$category[0]->title)
+@section('title','Velitique by Hawraa | '.$category[0]->title)
 @section('{{ $category->title }}-active','class=active-menu')
 @section('products')
 

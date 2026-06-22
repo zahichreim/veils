@@ -6,7 +6,7 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 <!--===============================================================================================-->	
-	<link rel="icon" type="image/png" href="{{asset('storage\settings_image\BA4EG0Hfv6vgf1Nnw7Mz0KxJ7079qY71I44AUXoI.jpg')}}"/>
+	<link rel="icon" type="image/png" href="{{ asset('pacex/images/branding/veils-logo.png') }}"/>
 <!--===============================================================================================-->
 	<link rel="stylesheet" type="text/css" href="{{asset('pacex/vendor/bootstrap/css/bootstrap.min.css')}}">
 	
@@ -45,231 +45,573 @@
 />
 
 <!--===============================================================================================-->
-<!-- PaceX "X" brand navbar — monochrome / glass / transparency -->
+<!-- Velitique by Hawraa storefront theme -->
 <style>
-    /* ===== Desktop: solid BLACK navbar, white monochrome links ===== */
-    .top-bar {
-        background-color: #000;
-    }
-    .wrap-menu-desktop,
-    .wrap-menu-desktop.how-shadow1,
-    .fix-menu-desktop .wrap-menu-desktop {
-        background-color: #000 !important;
-    }
-    .menu-desktop .main-menu > li > a {
-        position: relative;
-        color: #fff;
-        letter-spacing: 1.5px;
-        text-transform: uppercase;
-        font-weight: 600;
-    }
-    .menu-desktop .main-menu > li.active-menu > a {
-        color: #fff;
-    }
-    .menu-desktop .main-menu > li > a::after {
-        content: "";
-        position: absolute;
-        left: 22px;
-        right: 22px;
-        bottom: 16px;
-        height: 1px;
-        background: #fff;
-        transform: scaleX(0);
-        transform-origin: left;
-        transition: transform 0.35s ease;
-    }
-    .menu-desktop .main-menu > li:hover > a::after,
-    .menu-desktop .main-menu > li.active-menu > a::after {
-        transform: scaleX(1);
-    }
-    /* cart icon white on the black bar */
-    .container-menu-desktop .wrap-icon-header .icon-header-item {
-        color: #fff;
-    }
-    /* Info dropdown styled as a dark panel to match */
-    .menu-desktop .main-menu .sub-menu {
-        background-color: #000;
-        border-top: 2px solid #fff;
-    }
-    .menu-desktop .main-menu .sub-menu a {
-        color: rgba(255, 255, 255, 0.75);
-    }
-    .menu-desktop .main-menu .sub-menu a:hover {
-        color: #fff;
-    }
-    /* push the hero slider below the fixed header so it isn't covered */
-    @media (min-width: 992px) {
-        .section-slide {
-            margin-top: 84px;
-        }
+    :root {
+        --brand-ivory: #f7f1e8;
+        --brand-shell: #fcf9f3;
+        --brand-champagne: #eadcc3;
+        --brand-gold: #caa56a;
+        --brand-gold-deep: #a77c47;
+        --brand-ink: #26212b;
+        --brand-mocha: #6f5d49;
+        --brand-line: rgba(167, 124, 71, 0.24);
+        --brand-shadow: 0 24px 60px rgba(61, 43, 21, 0.12);
     }
 
-    /* ===== Mobile header bar (black) ===== */
-    .wrap-header-mobile {
+    body.brand-velitique {
+        background:
+            radial-gradient(circle at top, rgba(234, 220, 195, 0.55), transparent 38%),
+            linear-gradient(180deg, #fffdf9 0%, var(--brand-ivory) 100%);
+        color: var(--brand-ink);
+    }
+
+    body.brand-velitique a {
+        color: inherit;
+        transition: color 0.3s ease, border-color 0.3s ease, background-color 0.3s ease, transform 0.3s ease;
+    }
+
+    body.brand-velitique .bg0 {
+        background-color: transparent !important;
+    }
+
+    body.brand-velitique .bg6,
+    body.brand-velitique .bg8,
+    body.brand-velitique .wrap-filter,
+    body.brand-velitique .bor8.bg0,
+    body.brand-velitique .size-210,
+    body.brand-velitique .header-cart,
+    body.brand-velitique .bg0.p-t-60,
+    body.brand-velitique .bor10,
+    body.brand-velitique .wrap-table-shopping-cart,
+    body.brand-velitique .table-shopping-cart,
+    body.brand-velitique .rs1-select2 .select2-container .select2-selection--single {
+        background: rgba(255, 252, 247, 0.92) !important;
+        border-color: var(--brand-line) !important;
+        box-shadow: var(--brand-shadow);
+    }
+
+    body.brand-velitique .cl1,
+    body.brand-velitique .hov-cl1:hover,
+    body.brand-velitique .filter-link-active,
+    body.brand-velitique .how-active1,
+    body.brand-velitique .trans-04.hov-cl1:hover {
+        color: var(--brand-gold) !important;
+    }
+
+    body.brand-velitique .bg1,
+    body.brand-velitique .hov-bg1:hover,
+    body.brand-velitique .btn-back-to-top,
+    body.brand-velitique .bg8 {
+        background-color: var(--brand-gold) !important;
+    }
+
+    body.brand-velitique .bg3,
+    body.brand-velitique .hov-btn3:hover,
+    body.brand-velitique .size-116.bg3:hover,
+    body.brand-velitique .size-118.bg8:hover {
+        background-color: var(--brand-ink) !important;
+        border-color: var(--brand-ink) !important;
+    }
+
+    body.brand-velitique .cl2,
+    body.brand-velitique .cl5,
+    body.brand-velitique .mtext-101,
+    body.brand-velitique .mtext-105,
+    body.brand-velitique .mtext-109,
+    body.brand-velitique .ltext-103,
+    body.brand-velitique .ltext-105,
+    body.brand-velitique .block1-name,
+    body.brand-velitique .stext-104,
+    body.brand-velitique .nav-link.active {
+        color: var(--brand-ink) !important;
+    }
+
+    body.brand-velitique .cl3,
+    body.brand-velitique .cl4,
+    body.brand-velitique .cl6,
+    body.brand-velitique .stext-102,
+    body.brand-velitique .stext-105,
+    body.brand-velitique .header-cart-item-info,
+    body.brand-velitique .block1-info {
+        color: var(--brand-mocha) !important;
+    }
+
+    body.brand-velitique .bor1,
+    body.brand-velitique .bor2,
+    body.brand-velitique .bor7,
+    body.brand-velitique .bor8,
+    body.brand-velitique .bor10,
+    body.brand-velitique .bor13,
+    body.brand-velitique .bor15,
+    body.brand-velitique .table-shopping-cart td,
+    body.brand-velitique .table-shopping-cart th,
+    body.brand-velitique .nav-tabs,
+    body.brand-velitique .nav-tabs .nav-link,
+    body.brand-velitique .accordion-item,
+    body.brand-velitique .form-control,
+    body.brand-velitique textarea,
+    body.brand-velitique input,
+    body.brand-velitique select {
+        border-color: var(--brand-line) !important;
+    }
+
+    body.brand-velitique .top-bar {
+        height: 44px;
+        background: linear-gradient(90deg, var(--brand-ink), #3b2f23, var(--brand-ink));
+        border-bottom: 1px solid rgba(234, 220, 195, 0.25);
+    }
+
+    body.brand-velitique .left-top-bar,
+    body.brand-velitique .left-top-bar p {
+        color: rgba(247, 241, 232, 0.88) !important;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        font-size: 11px;
+    }
+
+    body.brand-velitique .wrap-menu-desktop,
+    body.brand-velitique .wrap-menu-desktop.how-shadow1,
+    body.brand-velitique .fix-menu-desktop .wrap-menu-desktop {
+        top: 44px;
+        height: 92px;
+        background: rgba(255, 250, 244, 0.92) !important;
+        backdrop-filter: blur(16px);
+        border-bottom: 1px solid rgba(167, 124, 71, 0.15);
+        box-shadow: 0 18px 48px rgba(55, 35, 12, 0.08);
+    }
+
+    body.brand-velitique .logo {
+        height: 78px;
+        margin-right: 42px;
+        padding: 8px 0;
+    }
+
+    body.brand-velitique .logo img,
+    body.brand-velitique .logo-mobile img {
+        max-height: 100%;
+        object-fit: contain;
+        filter: drop-shadow(0 10px 24px rgba(112, 90, 54, 0.18));
+    }
+
+    body.brand-velitique .menu-desktop .main-menu > li > a {
         position: relative;
-        background-color: #000;
+        color: var(--brand-ink);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 13px;
+    }
+
+    body.brand-velitique .menu-desktop .main-menu > li > a::after {
+        content: "";
+        position: absolute;
+        left: 2px;
+        right: 2px;
+        bottom: -8px;
+        height: 2px;
+        border-radius: 999px;
+        background: linear-gradient(90deg, transparent, var(--brand-gold), transparent);
+        transform: scaleX(0);
+        transform-origin: center;
+        transition: transform 0.35s ease;
+    }
+
+    body.brand-velitique .menu-desktop .main-menu > li:hover > a,
+    body.brand-velitique .menu-desktop .main-menu > li.active-menu > a {
+        color: var(--brand-gold-deep);
+    }
+
+    body.brand-velitique .menu-desktop .main-menu > li:hover > a::after,
+    body.brand-velitique .menu-desktop .main-menu > li.active-menu > a::after {
+        transform: scaleX(1);
+    }
+
+    body.brand-velitique .menu-desktop .main-menu .sub-menu {
+        background: rgba(255, 250, 244, 0.98);
+        border-top: 2px solid var(--brand-gold);
+        border-radius: 18px;
+        padding: 10px 0;
+        box-shadow: 0 22px 40px rgba(48, 31, 12, 0.12);
+    }
+
+    body.brand-velitique .menu-desktop .main-menu .sub-menu a {
+        color: var(--brand-mocha);
+    }
+
+    body.brand-velitique .menu-desktop .main-menu .sub-menu a:hover {
+        color: var(--brand-gold-deep);
+    }
+
+    body.brand-velitique .container-menu-desktop .wrap-icon-header .icon-header-item {
+        color: var(--brand-ink);
+    }
+
+    body.brand-velitique .icon-header-item:hover,
+    body.brand-velitique .btn-num-product-up:hover,
+    body.brand-velitique .btn-num-product-down:hover,
+    body.brand-velitique .btn-num-product-up1:hover,
+    body.brand-velitique .btn-num-product-down1:hover {
+        color: var(--brand-gold-deep) !important;
+        background: rgba(202, 165, 106, 0.12);
+    }
+
+    body.brand-velitique .wrap-header-mobile {
+        position: relative;
+        background: linear-gradient(90deg, var(--brand-ink), #3c3025 50%, var(--brand-ink));
         justify-content: flex-start;
+        min-height: 74px;
+        box-shadow: 0 18px 36px rgba(38, 33, 43, 0.18);
     }
-    .wrap-header-mobile .hamburger-inner,
-    .wrap-header-mobile .hamburger-inner::before,
-    .wrap-header-mobile .hamburger-inner::after {
-        background-color: #fff !important;
+
+    body.brand-velitique .wrap-header-mobile .hamburger-inner,
+    body.brand-velitique .wrap-header-mobile .hamburger-inner::before,
+    body.brand-velitique .wrap-header-mobile .hamburger-inner::after {
+        background-color: #fff6ea !important;
     }
-    .wrap-header-mobile .icon-header-item {
-        color: #fff !important;
+
+    body.brand-velitique .wrap-header-mobile .icon-header-item {
+        color: #fff5e5 !important;
     }
-    .wrap-header-mobile .btn-show-menu-mobile {
+
+    body.brand-velitique .wrap-header-mobile .btn-show-menu-mobile {
         order: 1;
         position: relative;
         z-index: 2;
         margin-right: 0;
     }
-    .wrap-header-mobile .wrap-icon-header {
+
+    body.brand-velitique .wrap-header-mobile .wrap-icon-header {
         order: 3;
         margin-left: auto;
         margin-right: 0;
         position: relative;
         z-index: 2;
     }
-    .wrap-header-mobile .logo-mobile {
+
+    body.brand-velitique .wrap-header-mobile .logo-mobile {
         position: absolute;
         left: 50%;
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
-        width: 110px;
-        height: 44px;
+        width: 150px;
+        height: 58px;
         padding: 0;
         text-align: center;
     }
-    .wrap-header-mobile .logo-mobile img {
+
+    body.brand-velitique .wrap-header-mobile .logo-mobile img {
         left: 50%;
         right: auto;
         transform: translateX(-50%);
         max-width: 100%;
     }
 
-    /* ===== Mobile menu: solid black + giant faint "X" brand mark ===== */
-    .menu-mobile {
+    body.brand-velitique .menu-mobile {
         position: relative;
-        background-color: #000;
-        border-top: 1px solid rgba(255, 255, 255, 0.15);
+        background:
+            radial-gradient(circle at top, rgba(202, 165, 106, 0.25), transparent 34%),
+            linear-gradient(180deg, #2b2320 0%, #1f1a20 100%);
+        border-top: 1px solid rgba(234, 220, 195, 0.18);
         overflow: hidden;
     }
-    .menu-mobile::before {
-        content: "X";
+
+    body.brand-velitique .menu-mobile::before {
+        content: "V";
         position: absolute;
-        right: -25px;
-        bottom: -80px;
+        right: -22px;
+        bottom: -96px;
         font-size: 340px;
         line-height: 1;
-        font-weight: 800;
-        font-style: italic;
-        color: rgba(255, 255, 255, 0.04);
+        font-family: PlayfairDisplay-Bold;
+        color: rgba(255, 247, 234, 0.05);
         pointer-events: none;
         z-index: 0;
     }
-    .menu-mobile .left-top-bar {
+
+    body.brand-velitique .menu-mobile .left-top-bar {
         position: relative;
         z-index: 1;
         background: transparent;
-        color: rgba(255, 255, 255, 0.55);
+        color: rgba(255, 244, 227, 0.7) !important;
         text-align: center;
-        letter-spacing: 2px;
+        letter-spacing: 0.18em;
         text-transform: uppercase;
         font-size: 11px;
-        padding: 14px 0;
-        border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+        padding: 16px 0;
+        border-bottom: 1px solid rgba(234, 220, 195, 0.12);
     }
-    /* kill the theme's beige background; pad the list so cards have room */
-    .main-menu-m {
+
+    body.brand-velitique .main-menu-m {
         position: relative;
         z-index: 1;
         background-color: transparent;
         padding: 18px 16px 28px;
     }
-    /* each item is a clearly pressable card with spacing between them */
-    .main-menu-m > li {
+
+    body.brand-velitique .main-menu-m > li {
         margin-bottom: 14px;
-        border: 1px solid rgba(255, 255, 255, 0.18);
-        border-radius: 12px;
-        background-color: rgba(255, 255, 255, 0.04);
+        border: 1px solid rgba(234, 220, 195, 0.16);
+        border-radius: 16px;
+        background-color: rgba(255, 251, 245, 0.05);
         overflow: hidden;
     }
-    .main-menu-m > li:last-child {
+
+    body.brand-velitique .main-menu-m > li:last-child {
         margin-bottom: 0;
     }
-    .main-menu-m > li > a {
-        display: block;                 /* whole row is tappable */
-        color: #fff;
+
+    body.brand-velitique .main-menu-m > li > a {
+        display: block;
+        color: #fff7eb;
         text-transform: uppercase;
-        letter-spacing: 3px;
+        letter-spacing: 0.2em;
         font-size: 15px;
         font-weight: 600;
         line-height: 1.4;
-        padding: 24px 26px;             /* tall, finger-friendly tap target */
+        padding: 24px 26px;
         -webkit-tap-highlight-color: rgba(255, 255, 255, 0.25);
-        transition: padding-left 0.25s ease, background-color 0.2s ease;
     }
-    .main-menu-m > li > a:hover,
-    .main-menu-m > li > a:active {
-        background-color: rgba(255, 255, 255, 0.14);
+
+    body.brand-velitique .main-menu-m > li > a:hover,
+    body.brand-velitique .main-menu-m > li > a:active {
+        background-color: rgba(202, 165, 106, 0.18);
         padding-left: 32px;
     }
-    /* Info sub-menu (the only remaining dropdown on mobile) */
-    .main-menu-m .sub-menu-m {
-        background-color: rgba(0, 0, 0, 0.35);
+
+    body.brand-velitique .main-menu-m .sub-menu-m {
+        background-color: rgba(255, 255, 255, 0.04);
     }
-    .main-menu-m .sub-menu-m li {
-        border-top: 1px solid rgba(255, 255, 255, 0.08);
+
+    body.brand-velitique .main-menu-m .sub-menu-m li {
+        border-top: 1px solid rgba(234, 220, 195, 0.08);
     }
-    .main-menu-m .sub-menu-m li a {
-        display: block;                 /* full-row tap target */
-        color: rgba(255, 255, 255, 0.75);
+
+    body.brand-velitique .main-menu-m .sub-menu-m li a {
+        display: block;
+        color: rgba(255, 244, 227, 0.8);
         font-size: 12px;
-        letter-spacing: 2px;
+        letter-spacing: 0.18em;
         font-weight: 400;
         padding: 18px 26px 18px 38px;
         -webkit-tap-highlight-color: rgba(255, 255, 255, 0.25);
-        transition: padding-left 0.25s ease, background-color 0.2s ease;
     }
-    .main-menu-m .sub-menu-m li a:hover,
-    .main-menu-m .sub-menu-m li a:active {
+
+    body.brand-velitique .main-menu-m .sub-menu-m li a:hover,
+    body.brand-velitique .main-menu-m .sub-menu-m li a:active {
         color: #fff;
-        background-color: rgba(255, 255, 255, 0.08);
+        background-color: rgba(202, 165, 106, 0.18);
         padding-left: 46px;
     }
-    /* bigger, centered tap area for the Info expand arrow */
-    .main-menu-m .arrow-main-menu-m {
+
+    body.brand-velitique .main-menu-m .arrow-main-menu-m {
         top: 8px;
         right: 8px;
         padding: 16px;
     }
-    .main-menu-m .arrow-main-menu-m,
-    .main-menu-m .arrow-main-menu-m .fa {
-        color: rgba(255, 255, 255, 0.6);
+
+    body.brand-velitique .main-menu-m .arrow-main-menu-m,
+    body.brand-velitique .main-menu-m .arrow-main-menu-m .fa {
+        color: rgba(255, 244, 227, 0.65);
     }
 
-    /* ===== Mobile slider: make the hero feel taller on entry ===== */
+    body.brand-velitique .section-slide {
+        margin-top: 92px;
+    }
+
+    body.brand-velitique .item-slick1 {
+        position: relative;
+        overflow: hidden;
+    }
+
+    body.brand-velitique .item-slick1::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(115deg, rgba(247, 241, 232, 0.92) 0%, rgba(247, 241, 232, 0.42) 42%, rgba(38, 33, 43, 0.12) 100%);
+        pointer-events: none;
+    }
+
+    body.brand-velitique .item-slick1 .container,
+    body.brand-velitique .item-slick1 .layer-slick1 {
+        position: relative;
+        z-index: 1;
+    }
+
+    body.brand-velitique .ltext-101,
+    body.brand-velitique .ltext-201,
+    body.brand-velitique .ltext-103,
+    body.brand-velitique .ltext-105 {
+        font-family: PlayfairDisplay-Bold;
+        letter-spacing: 0.02em;
+    }
+
+    body.brand-velitique .block1,
+    body.brand-velitique .block2,
+    body.brand-velitique .how-bor1,
+    body.brand-velitique .accordion-item {
+        border-radius: 24px;
+        overflow: hidden;
+        border: 1px solid rgba(167, 124, 71, 0.12);
+        box-shadow: var(--brand-shadow);
+    }
+
+    body.brand-velitique .block1-txt {
+        background: linear-gradient(180deg, rgba(38, 33, 43, 0.04) 0%, rgba(38, 33, 43, 0.55) 100%);
+    }
+
+    body.brand-velitique .block1-txt:hover {
+        background: linear-gradient(180deg, rgba(38, 33, 43, 0.08) 0%, rgba(38, 33, 43, 0.68) 100%);
+    }
+
+    body.brand-velitique .block1-link {
+        padding-bottom: 3px;
+        border-bottom: 1px solid rgba(255, 248, 236, 0.65);
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+    }
+
+    body.brand-velitique .block2 {
+        padding: 14px;
+        background: rgba(255, 252, 247, 0.88);
+    }
+
+    body.brand-velitique .block2-pic,
+    body.brand-velitique .how-itemcart1,
+    body.brand-velitique .slick3 .item-slick3 {
+        border-radius: 18px;
+        overflow: hidden;
+    }
+
+    body.brand-velitique .block2-btn,
+    body.brand-velitique .flex-c-m.stext-101,
+    body.brand-velitique .flex-c-m.stext-103,
+    body.brand-velitique .size-118.bg8,
+    body.brand-velitique .size-116.bg3 {
+        border-radius: 999px;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-weight: 700;
+    }
+
+    body.brand-velitique .hov-btn1:hover,
+    body.brand-velitique .size-116.bg3,
+    body.brand-velitique .size-118.bg8 {
+        color: var(--brand-ink) !important;
+        border-color: var(--brand-gold) !important;
+        background-color: var(--brand-gold) !important;
+    }
+
+    body.brand-velitique .hov-btn1:hover,
+    body.brand-velitique .size-116.bg3:hover,
+    body.brand-velitique .size-118.bg8:hover {
+        color: #fff7ea !important;
+    }
+
+    body.brand-velitique .bg-img1 {
+        position: relative;
+        overflow: hidden;
+    }
+
+    body.brand-velitique .bg-img1::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background:
+            linear-gradient(135deg, rgba(38, 33, 43, 0.72), rgba(167, 124, 71, 0.34)),
+            linear-gradient(180deg, rgba(255, 255, 255, 0.08), transparent);
+    }
+
+    body.brand-velitique .bg-img1 > * {
+        position: relative;
+        z-index: 1;
+    }
+
+    body.brand-velitique .header-cart,
+    body.brand-velitique .bg0.p-t-60.p-b-30.p-lr-15-lg {
+        background: rgba(255, 252, 247, 0.98) !important;
+    }
+
+    body.brand-velitique .table-shopping-cart .table_head th {
+        background: rgba(202, 165, 106, 0.16);
+        color: var(--brand-ink);
+    }
+
+    body.brand-velitique .nav-tabs .nav-link {
+        color: var(--brand-mocha);
+    }
+
+    body.brand-velitique .nav-tabs .nav-link.active {
+        border-bottom: 2px solid var(--brand-gold) !important;
+    }
+
+    body.brand-velitique .accordion-button {
+        background: rgba(247, 241, 232, 0.96) !important;
+        color: var(--brand-ink) !important;
+        font-weight: 600;
+    }
+
+    body.brand-velitique .accordion-button:not(.collapsed) {
+        background: rgba(202, 165, 106, 0.18) !important;
+        box-shadow: none;
+    }
+
+    body.brand-velitique .accordion-body {
+        background: rgba(255, 252, 247, 0.92) !important;
+        color: var(--brand-mocha) !important;
+    }
+
+    body.brand-velitique footer.bg3 {
+        background:
+            radial-gradient(circle at top, rgba(202, 165, 106, 0.18), transparent 32%),
+            linear-gradient(180deg, #241d23 0%, #171218 100%) !important;
+    }
+
+    body.brand-velitique footer .cl7 {
+        color: rgba(255, 243, 227, 0.7) !important;
+    }
+
+    body.brand-velitique footer .hov-cl1:hover {
+        color: var(--brand-champagne) !important;
+    }
+
+    body.brand-velitique .btn-back-to-top {
+        opacity: 0.92;
+        right: 24px;
+        bottom: 24px;
+        box-shadow: 0 18px 30px rgba(74, 49, 24, 0.24);
+    }
+
+    body.brand-velitique .btn-back-to-top:hover {
+        background-color: var(--brand-gold-deep) !important;
+    }
+
     @media (max-width: 991px) {
-        .item-slick1 {
+        body.brand-velitique .item-slick1 {
             height: 78vh !important;
             min-height: 520px !important;
             aspect-ratio: auto;
             background-size: cover !important;
             background-position: center center;
-            background-color: #000;
+            background-color: var(--brand-ink);
         }
-        .item-slick1 .container.h-full,
-        .item-slick1 .flex-col-l-m.h-full {
+
+        body.brand-velitique .item-slick1 .container.h-full,
+        body.brand-velitique .item-slick1 .flex-col-l-m.h-full {
             height: 100% !important;
+        }
+
+        body.brand-velitique .section-slide {
+            margin-top: 0;
         }
     }
 </style>
 <!--===============================================================================================-->
 
 </head>
-<body class="animsition">
+<body class="animsition brand-velitique">
 	
 	<!-- Header -->
 	<header @yield('class')>
@@ -279,7 +621,7 @@
 			<div class="top-bar">
 				<div class="content-topbar flex-sb-m h-full container">
 					<div class="left-top-bar">
-						<p>Free shipping for standard order over $100</p>
+						<p>Signature modestwear with complimentary shipping on orders over $100</p>
 					</div>
 				</div>
 			</div>
@@ -288,8 +630,8 @@
 				<nav class="limiter-menu-desktop container">
 					
 					<!-- Logo desktop -->		
-					<a href="#" class="logo">
-						<img src="{{ asset('storage/'.$logo) }}" alt="IMG-LOGO">
+					<a href="{{ route('home') }}" class="logo">
+						<img src="{{ asset('pacex/images/branding/veils-logo.png') }}" alt="Velitique by Hawraa logo">
 					</a>
 
 					<!-- Menu desktop -->
@@ -349,7 +691,7 @@
 
 			<!-- Logo moblie -->		
 			<div class="logo-mobile">
-				<a href="{{ route('home') }}"><img src="{{ asset('storage/'.$logo) }}" alt="IMG-LOGO"></a>
+				<a href="{{ route('home') }}"><img src="{{ asset('pacex/images/branding/veils-logo.png') }}" alt="Velitique by Hawraa logo"></a>
 			</div>
 
 			<!-- Icon header -->
@@ -365,7 +707,7 @@
 		<!-- Menu Mobile -->
 		<div class="menu-mobile">
 			<div class="left-top-bar">
-				<p>Free shipping for standard order over $100</p>
+				<p>Signature modestwear with complimentary shipping on orders over $100</p>
 			</div>
 			<ul class="main-menu-m">
 				<li>
@@ -570,7 +912,7 @@
 
 			<div class="p-t-40">
 				<p class="stext-107 cl6 txt-center">
-					Copyright &copy;{{ \Carbon\Carbon::now()->year }} All rights reserved | Pacex | Privacy and Terms.
+					Copyright &copy;{{ \Carbon\Carbon::now()->year }} All rights reserved | Velitique by Hawraa | Privacy and Terms.
 				</p>
 			</div>
 		</div>

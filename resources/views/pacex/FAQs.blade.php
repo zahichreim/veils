@@ -1,5 +1,5 @@
 @extends('pacex.layout')
-@section('title','PaceX | FAQs')
+@section('title','Velitique by Hawraa | FAQs')
 @section('info-active','class=active-menu')
 @section('class','class=header-v4')
 @section('content')

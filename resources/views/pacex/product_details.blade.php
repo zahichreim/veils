@@ -1,5 +1,5 @@
 @extends('pacex.layout')
-@section('title','PaceX | '.$product->title)
+@section('title','Velitique by Hawraa | '.$product->title)
 @section('product')
 	<!-- Product Detail -->
 	<section class="sec-product-detail bg0 p-t-100 p-b-60">

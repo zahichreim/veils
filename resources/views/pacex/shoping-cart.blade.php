@@ -1,9 +1,9 @@
 @extends('pacex.layout')
-@section('title','PaceX | Shopping Cart & Checkout')
+@section('title','Velitique by Hawraa | Shopping Cart & Checkout')
 @section('class', 'class=header-v4')
 @section('content')
 
-<!-- ===== PaceX "X" brand checkout styling ===== -->
+<!-- ===== Velitique checkout styling ===== -->
 <style>
     .bread-crumb h1 {
         text-transform: uppercase;
@@ -18,7 +18,7 @@
         max-width: 720px;
         margin: 26px auto 10px;
         padding: 30px 26px;
-        background: #000;
+        background: linear-gradient(135deg, #26212b, #4c3a28);
         border-radius: 16px;
         text-align: center;
     }
@@ -30,7 +30,7 @@
         font-style: italic;
         font-weight: 800;
         line-height: 1;
-        color: rgba(255, 255, 255, 0.06);
+        color: rgba(255, 247, 234, 0.08);
         pointer-events: none;
     }
     .x-thankyou-title {
@@ -47,11 +47,11 @@
         margin: 0;
     }
 
-    /* Proceed to checkout -> solid black X button (invert on hover) */
+    /* Proceed to checkout button */
     .size-116.bg3 {
-        background-color: #000 !important;
-        border-color: #000 !important;
-        color: #fff !important;
+        background-color: #caa56a !important;
+        border-color: #caa56a !important;
+        color: #26212b !important;
         text-transform: uppercase;
         letter-spacing: 3px;
         font-weight: 700;
@@ -59,33 +59,33 @@
         transition: background-color 0.3s, color 0.3s;
     }
     .size-116.bg3:hover {
-        background-color: #fff !important;
-        color: #000 !important;
-        border-color: #000 !important;
+        background-color: #26212b !important;
+        color: #fff7ea !important;
+        border-color: #26212b !important;
     }
     /* Apply-promocode button -> black */
     .size-118.bg8 {
-        background-color: #000 !important;
-        border-color: #000 !important;
+        background-color: #caa56a !important;
+        border-color: #caa56a !important;
     }
-    .size-118.bg8 #promocode-btn { color: #fff; }
+    .size-118.bg8 #promocode-btn { color: #26212b; }
 
     /* ===== Mobile: creative + spacious ===== */
     @media (max-width: 991px) {
         .bread-crumb { justify-content: center; }
         .bread-crumb h1 { font-size: 26px; }
 
-        /* checkout card as an X-brand panel */
+        /* checkout card panel */
         .bor10 {
             position: relative;
             overflow: hidden;
             margin: 0 12px 30px !important;
-            border: 1px solid #000 !important;
+            border: 1px solid rgba(167, 124, 71, 0.24) !important;
             border-radius: 18px;
             background-color: #fff;
         }
         .bor10::before {
-            content: "X";
+            content: "V";
             position: absolute;
             right: -18px;
             top: -46px;
@@ -93,7 +93,7 @@
             font-style: italic;
             font-weight: 800;
             line-height: 1;
-            color: rgba(0, 0, 0, 0.035);
+            color: rgba(167, 124, 71, 0.08);
             pointer-events: none;
         }
         .mtext-109 {
@@ -138,8 +138,8 @@
 
 @if (session('success'))
     <div class="x-thankyou">
-        <span class="x-thankyou-mark">X</span>
-        <h3 class="x-thankyou-title">Thank you for your order</h3>
+        <span class="x-thankyou-mark">V</span>
+        <h3 class="x-thankyou-title">Thank you for choosing Velitique</h3>
         <p class="x-thankyou-text">{{ session('success') }}</p>
     </div>
     <script>
@@ -160,14 +160,14 @@
 @endif
 <div class="container">
     <div class="bread-crumb flex-w p-l-25 p-r-15 p-t-30 p-lr-0-lg">
-        <h1>Shoping Cart</h1>
+        <h1>Shopping Cart</h1>
     </div>
 </div>
 
 
 
 
-<!-- Shoping Cart -->
+<!-- Shopping Cart -->
 {{-- <form class="bg0 p-t-75 p-b-85"> --}}
 {{-- @csrf --}}
 <div class="container">

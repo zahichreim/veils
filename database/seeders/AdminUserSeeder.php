@@ -15,13 +15,13 @@ class AdminUserSeeder extends Seeder
      * Any authenticated user can reach the admin routes (there is no role
      * column), so this account is all that is required to manage the site.
      *
-     * Login:  admin@pacex.com  /  password
+     * Login:  hawraa@veils.com  /  password
      * Change the password after the first login.
      */
     public function run(): void
     {
         User::updateOrCreate(
-            ['email' => 'admin@pacex.com'],
+            ['email' => 'hawraa@veils.com'],
             [
                 'first_name' => 'Admin',
                 'last_name' => 'User',

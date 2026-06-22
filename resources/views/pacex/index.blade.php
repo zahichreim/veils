@@ -1,5 +1,5 @@
 @extends('pacex/layout')
-@section('title','PaceX')
+@section('title','Velitique by Hawraa')
 @section('home-active','class=active-menu')
 @section('slider')
 
@@ -29,7 +29,7 @@
 
                         @if(!empty($slider->url))
                         <div class="layer-slick1 animated visible-false" data-appear="zoomIn" data-delay="1600">
-                            <a href="{{ $slider->url }}" class="flex-c-m stext-101 size-101 bor1 hov-btn1 p-lr-15 trans-04" style="color: {{ $slider->button_text_color ?? '#ffffff' }}; background-color: {{ $slider->button_background_color ?? '#717fe0' }}; border-color: {{ $slider->button_background_color ?? '#717fe0' }};">
+                            <a href="{{ $slider->url }}" class="flex-c-m stext-101 size-101 bor1 hov-btn1 p-lr-15 trans-04" style="color: {{ $slider->button_text_color ?? '#26212b' }}; background-color: {{ $slider->button_background_color ?? '#caa56a' }}; border-color: {{ $slider->button_background_color ?? '#caa56a' }};">
                                 {{ $slider->button_text ?: 'Shop Now' }}
                             </a>
                         </div>
@@ -93,7 +93,7 @@
     <div class="container">
         <div class="p-b-10">
             <h3 class="ltext-103 cl5">
-                Featured Products
+                Signature Collection
             </h3>
         </div>
 

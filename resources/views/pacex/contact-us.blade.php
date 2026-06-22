@@ -1,12 +1,12 @@
 @extends('pacex.layout')
-@section('title','PaceX | Contact US')
+@section('title','Velitique by Hawraa | Contact Us')
 @section('info-active','class=active-menu')
 @section('class','class=header-v4')
 @section('content')
 	<!-- Title page -->
 	<section class="bg-img1 txt-center p-lr-15 p-tb-92" style="background-image: url({{ asset('storage/'.$setting->image) }});">
 		<h2 class="ltext-105 cl0 txt-center">
-			Contact US
+			Contact Us
 		</h2>
 	</section>	
 

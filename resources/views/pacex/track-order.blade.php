@@ -1,5 +1,5 @@
 @extends('pacex.layout')
-@section('title','PaceX | Track Your Order')
+@section('title','Velitique by Hawraa | Track Your Order')
 @section('info-active','class=active-menu')
 @section('class','class=header-v4')
 @section('content')
