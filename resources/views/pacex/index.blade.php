@@ -13,7 +13,7 @@
                     <div class="flex-col-c-m h-full p-t-100 p-b-30 respon5 text-center">
                         @if(!empty($slider->title))
                         <div class="layer-slick1 animated visible-false" data-appear="fadeInDown" data-delay="0">
-                            <span class="ltext-101 respon2" style="color: {{ $slider->title_color ?? '#222222' }};">
+                            <span class="ltext-101 respon2" style="color: {{ $slider->title_color ?? '#222222' }}; font-size: clamp(2.25rem, 6vw, 4.75rem); font-weight: 800; line-height: 1.05;">
                                 {{ $slider->title }}
                             </span>
                         </div>
