@@ -182,7 +182,7 @@
     }
 
     body.brand-velitique .logo {
-        height: 110px;
+        height: 156px;
         margin-right: 42px;
         padding: 6px 0;
         display: flex;
@@ -200,7 +200,7 @@
     }
 
     body.brand-velitique .logo img {
-        max-width: 260px;
+        max-width: 380px;
     }
 
     body.brand-velitique .logo:hover img,
@@ -310,8 +310,8 @@
         top: 50%;
         transform: translate(-50%, -50%);
         z-index: 1;
-        width: 200px;
-        height: 76px;
+        width: 290px;
+        height: 112px;
         padding: 0;
         text-align: center;
         display: flex;
@@ -323,7 +323,7 @@
         left: 50%;
         right: auto;
         transform: translateX(-50%);
-        max-width: 210px;
+        max-width: 290px;
     }
 
     body.brand-velitique .menu-mobile {
@@ -608,11 +608,11 @@
 
     @media (max-width: 991px) {
         body.brand-velitique .logo {
-            height: 92px;
+            height: 128px;
         }
 
         body.brand-velitique .logo img {
-            max-width: 220px;
+            max-width: 320px;
         }
 
         body.brand-velitique .item-slick1 {
@@ -636,12 +636,12 @@
 
     @media (max-width: 575px) {
         body.brand-velitique .wrap-header-mobile .logo-mobile {
-            width: 170px;
-            height: 66px;
+            width: 235px;
+            height: 90px;
         }
 
         body.brand-velitique .wrap-header-mobile .logo-mobile img {
-            max-width: 175px;
+            max-width: 230px;
         }
     }
 </style>
