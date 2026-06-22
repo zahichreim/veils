@@ -107,6 +107,7 @@
     /* ===== Mobile header bar (black) ===== */
     .wrap-header-mobile {
         background-color: #000;
+        justify-content: space-between;
     }
     .wrap-header-mobile .hamburger-inner,
     .wrap-header-mobile .hamburger-inner::before,
@@ -115,6 +116,26 @@
     }
     .wrap-header-mobile .icon-header-item {
         color: #fff !important;
+    }
+    .wrap-header-mobile .btn-show-menu-mobile {
+        order: 1;
+        margin-right: 12px;
+    }
+    .wrap-header-mobile .wrap-icon-header {
+        order: 2;
+        margin-right: 12px;
+        margin-left: auto;
+    }
+    .wrap-header-mobile .logo-mobile {
+        order: 3;
+        flex-grow: 0;
+        padding-right: 0;
+        padding-left: 20px;
+        text-align: right;
+    }
+    .wrap-header-mobile .logo-mobile img {
+        left: auto;
+        right: 0;
     }
 
     /* ===== Mobile menu: solid black + giant faint "X" brand mark ===== */
@@ -218,17 +239,16 @@
         color: rgba(255, 255, 255, 0.6);
     }
 
-    /* ===== Mobile slider: show the FULL image (no cropping) ===== */
+    /* ===== Mobile slider: make the hero feel taller on entry ===== */
     @media (max-width: 991px) {
         .item-slick1 {
-            height: auto !important;
-            min-height: 0 !important;
-            aspect-ratio: 16 / 9;          /* keeps a banner shape; image still fully shown */
-            background-size: contain !important;
+            height: 78vh !important;
+            min-height: 520px !important;
+            aspect-ratio: auto;
+            background-size: cover !important;
             background-position: center center;
-            background-color: #000;        /* fills any letterbox area */
+            background-color: #000;
         }
-        /* let captions sit naturally over the contained image */
         .item-slick1 .container.h-full,
         .item-slick1 .flex-col-l-m.h-full {
             height: 100% !important;
@@ -309,9 +329,11 @@
 
 		<!-- Header Mobile -->
 		<div class="wrap-header-mobile">
-			<!-- Logo moblie -->		
-			<div class="logo-mobile">
-				<a href="{{ route('home') }}"><img src="{{ asset('storage/'.$logo) }}" alt="IMG-LOGO"></a>
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
 			</div>
 
 			<!-- Icon header -->
@@ -322,11 +344,9 @@
 				</div>
 			</div>
 
-			<!-- Button show menu -->
-			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
-				<span class="hamburger-box">
-					<span class="hamburger-inner"></span>
-				</span>
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="{{ route('home') }}"><img src="{{ asset('storage/'.$logo) }}" alt="IMG-LOGO"></a>
 			</div>
 		</div>
 
